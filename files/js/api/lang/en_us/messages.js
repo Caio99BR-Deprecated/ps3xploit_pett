@@ -1,9 +1,11 @@
-// PS3 Default Messages [English US]
+﻿// PS3 Default Messages [English US]
 // PS3Xploit Team 2018 / ps3xploit.com
-		
+
+// Language Template
+
 
 var msg_select_vsh_type="Use CEX?\n\nSelecting NO will use DEX offsets";
-		
+
 var msg_detected_fw_1="Detected FW: ";
 var msg_detected_fw_2=" ";
 //var msg_detected_fw_3=" / MinVer: ";
@@ -144,8 +146,8 @@ var gui_chk_default_settings="Default Settings:";
 var gui_chk_disable_trigger="Disable Trigger:";
 var gui_chk_write_protect="Write Protect:";
 var gui_chk_flash_type_nand="NAND:";
-var gui_chk_flash_type_nor=" &nbsp NOR:";
-var gui_chk_flash_type_emmc=" &nbsp eMMC:";
+var gui_chk_flash_type_nor=" NOR:";
+var gui_chk_flash_type_emmc=" eMMC:";
 
 // Reboot Mode
 var gui_chk_reboot_mode="Reboot Mode:";
@@ -314,7 +316,7 @@ var gui_txt_group_permissions="Permissions:";
 var gui_txt_option_chmod="chmod";
 var gui_txt_option_chown="chown";
 
-var gui_txt_group_filesize="File Size 0x:";
+var gui_txt_group_filesize="File Size:";
 var gui_txt_group_titleid="TitleID:";
 
 var gui_txt_btn_set_filesize="Set";
@@ -359,10 +361,3 @@ var gui_txt_option_reset_btn="Reset Options";
 var gui_txt_option_load_settings_btn="Load Settings";
 var gui_txt_option_save_settings_btn="Save Settings";
 var gui_txt_option_debug_show_var_btn="Show All Variables";
-
-
-
-
-
-
-

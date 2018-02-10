@@ -1,4 +1,4 @@
-<!-- PS3 ROP Chain Template -->
+﻿<!-- PS3 ROP Chain Template -->
 <!-- PS3Xploit Team 2018 / ps3xploit.com -->
 
 <!-- [Brazilian Portuguese] -->
@@ -42,33 +42,30 @@
 	
 		<div id="HeaderID">
 			<div class="orange" id="gui_title"></div>
+			<table width="100%" cellpadding="0" cellspacing="0">
+			    <tr>
+				    <td>
 			<div class="white" id="gui_team"></div>
+					</td>
+					<td>
 			<div class="green_small" id="fwVerText"></div>
+					</td>
+				</tr>
+			</table>
+		<hr size="1">
 			<div class="teal_smaller" id="gui_credits"></div>
 		</div>
-		
+		<hr size="1">
 		<div id="top_row">
 			<b><span class="white" id="gui_chk_default_settings"></span></b><input type="checkbox" id="default_settings" name="default_settings" onclick="toggle_default_settings();" checked />
-			<span class="white">|</span> &nbsp
 			
 			<b><span class="white" id="gui_chk_disable_trigger"></span></b><input type="checkbox" id="disable_trigger" name="disable_trigger" onclick="toggleTrigger();"/>
-			<span class="white">|</span> &nbsp
 			
-			<b><span class="white" id="gui_chk_flash_type_nand"></span></b><input type="checkbox" id="flash_type_nand" name="flash_type_nand" onclick="setFlashType(0);"/><b><span class="white" id="gui_chk_flash_type_nor"></span></b><input type="checkbox" id="flash_type_nor" name="flash_type_nor" onclick="setFlashType(1);" checked /><b><span class="white" id="gui_chk_flash_type_emmc"></span></b><input type="checkbox" id="flash_type_emmc" name="flash_type_emmc" onclick="setFlashType(2);"/> 
-			&nbsp <span class="white">|</span> &nbsp
+			<b><span class="white" id="gui_chk_flash_type_nand"></span></b><input type="checkbox" id="flash_type_nand" name="flash_type_nand" onclick="setFlashType(0);"/><b><span class="white" id="gui_chk_flash_type_nor"></span></b><input type="checkbox" id="flash_type_nor" name="flash_type_nor" onclick="setFlashType(1);" checked /><b><span class="white" id="gui_chk_flash_type_emmc"></span></b><input type="checkbox" id="flash_type_emmc" name="flash_type_emmc" onclick="setFlashType(2);"/>
 				
-			<b><span class="white" id="gui_chk_write_protect"></font></b><input type="checkbox" id="write_protection_toggle" name="write_protection_toggle" onclick="toggleWriteProtect();" checked /> <span class="white">|</span> &nbsp
-			
-			<b><span class="white" id="gui_chk_reboot_mode"></span></b> 
-			<select name="marked_reboot" id="marked_reboot" onchange="rebootSelection(this);">
-			<option value="" id="gui_chk_reboot_mode_select"></option>
-			<option value="reboot_shutdown_soft" id="gui_chk_reboot_mode_soft"></option>
-			<option value="reboot_shutdown_hard" id="gui_chk_reboot_mode_hard"></option>
-			<option value="reboot_shutdown_off" id="gui_chk_reboot_mode_off"></option>
-			</select> <!-- &nbsp <span class="white">|</span> &nbsp -->
+			<b><span class="white" id="gui_chk_write_protect"></font></b><input type="checkbox" id="write_protection_toggle" name="write_protection_toggle" onclick="toggleWriteProtect();" checked />
 		</div>
-		
-		
+		<hr size="1">
 		<!-- Stack Frame Hex -->
 		<div id="chain_stackframe">
 		
@@ -84,7 +81,7 @@
 				<!-- <option value="console_write_test" id="gui_txt_option_console_write_test"></option> -->
 				<!-- <option value="sys_tty_read" id="gui_txt_option_sys_tty_read"></option> -->
 				<!-- <option value="sys_tty_write" id="gui_txt_option_sys_tty_write"></option> -->
-				</select> &nbsp <span class="white">|</span> &nbsp
+				</select>
 				
 				<select name="marked_hex_dump" id="marked_hex_dump" onchange="chainSelection(this);" >
 				<option value="" id="gui_txt_preset_chains_dumping" selected></option>
@@ -95,27 +92,27 @@
 				<option value="dump_idps_from_mem" id="gui_txt_option_dump_idps_from_mem"></option>
 				<option value="sys_net_dump" id="gui_txt_option_sys_net_dump"></option>
 				<!-- <option value="dump_idps_from_flash" id="gui_txt_option_dump_idps_from_flash"></option> -->
-				</select> &nbsp <span class="white">|</span> &nbsp
+				</select>
 				
 				<select name="marked_hex_file_system" id="marked_hex_file_system" onchange="chainSelection(this);" >
 				<option value="" id="gui_txt_preset_chains_file_system" selected></option>
 				<option value="db_rebuild" id="gui_txt_option_db_rebuild"></option>
 				<option value="file_read_write_test" id="gui_txt_option_file_read_write_test"></option>
 				<option value="dir_read_write_test" id="gui_txt_option_dir_read_write_test"></option>
-				</select> &nbsp <span class="white">|</span> &nbsp
+				</select>
 				
 				<select name="marked_hex_fun" id="marked_hex_fun" onchange="chainSelection(this);" >
 				<option value="" id="gui_txt_preset_chains_fun" selected></option>
 				<option value="beep_test" id="gui_txt_option_fun_test"></option>
-				</select> <!-- &nbsp <span class="white">|</span> &nbsp -->
+				</select>
 			</div>
-			
+			<hr size="1">
 			<div id="memory_sys_chains">
 				<b><span class="white" id="gui_txt_syscall_group_mem_sys"></span></b> 
 				<select name="marked_hex_memory" id="marked_hex_memory" onchange="chainSelection(this);" >
 				<option value="" id="gui_txt_syscall_chains_mem_sys" selected></option>
 				<option value="sys_rsx_memory_free" id="gui_txt_option_sys_rsx_memory_free"></option>
-				</select> &nbsp <span class="white">|</span> &nbsp
+				</select>
 				
 				<select name="marked_hex_storage" id="marked_hex_storage" onchange="chainSelection(this);" >
 				<option value="" id="gui_txt_syscall_chains_storage" selected></option>
@@ -137,7 +134,7 @@
 				<option value="sys_fs_symbolic_link" id="gui_txt_option_sys_fs_symbolic_link"></option>
 				<option value="sys_fs_unlink" id="gui_txt_option_sys_fs_unlink"></option>
 				<option value="sys_fs_unmount" id="gui_txt_option_sys_fs_unmount"></option>
-				</select> &nbsp <span class="white">|</span> &nbsp
+				</select>
 				
 				<select name="marked_hex_system" id="marked_hex_system" onchange="chainSelection(this);">
 				<option value="" id="gui_txt_syscall_chains_system" selected></option>
@@ -192,11 +189,10 @@
 				<option value="sys_net_read_dump" id="gui_txt_option_sys_net_read_dump"></option>
 				<option value="sys_net_write_dump" id="gui_txt_option_sys_net_write_dump"></option>
 				<option value="sys_net_close_dump" id="gui_txt_option_sys_net_close_dump"></option>
-				</select> <!-- &nbsp <span class="white">|</span> &nbsp -->
+				</select> &nbsp
 				
 				<b><span class="white" id="gui_txt_option_url"></span></b> 
-				<textarea id="network_url_edit" name="network_url_edit" cols="24" rows="1"></textarea> 
-				&nbsp <span class="white">|</span> &nbsp
+				<textarea id="network_url_edit" name="network_url_edit" cols="24" rows="1"></textarea>
 			</div>
 			
 			<div id="debugging_chains">
@@ -204,10 +200,17 @@
 				<select name="marked_hex_debugging" id="marked_hex_debugging" onchange="chainSelection(this);" >
 				<option value="" id="gui_txt_syscall_chains_debug_sc" selected></option>
 				<option value="beep_test" id="gui_txt_option_debug_placeholder"></option>
-				</select> 
-				<!-- &nbsp <span class="white">|</span> &nbsp -->
+				</select> &nbsp
+
+				<b><span class="white" id="gui_chk_reboot_mode"></span></b> 
+				<select name="marked_reboot" id="marked_reboot" onchange="rebootSelection(this);">
+				<option value="" id="gui_chk_reboot_mode_select"></option>
+				<option value="reboot_shutdown_soft" id="gui_chk_reboot_mode_soft"></option>
+				<option value="reboot_shutdown_hard" id="gui_chk_reboot_mode_hard"></option>
+				<option value="reboot_shutdown_off" id="gui_chk_reboot_mode_off"></option>
+				</select>
 			</div>
-				
+			<hr size="1">
 			<div id="led_chains">
 				<b><span class="white" id="gui_txt_syscall_group_led"></span></b> 
 				<select name="marked_hex_system_led" id="marked_hex_system_led" onchange="chainSelection(this);">
@@ -229,7 +232,7 @@
 				<option value="0" id="gui_txt_option_led_action_off"></option>
 				<option value="2" id="gui_txt_option_led_action_blink_fast"></option>
 				<option value="3" id="gui_txt_option_led_action_blink_slow"></option>
-				</select> &nbsp <span class="white">|</span> &nbsp
+				</select> &nbsp
 				
 				<b><span class="white" id="gui_txt_syscall_group_beep_params"></span></b> 
 				<select name="number_of_beeps_edit" id="number_of_beeps_edit" onchange="setNumberOfBeeps(this);">
@@ -241,9 +244,9 @@
 				<option value="496" id="gui_txt_option_beep_1"></option>
 				<option value="256" id="gui_txt_option_beep_1f"></option>
 				<option value="4095" id="gui_txt_option_beep_flatline"></option>
-				</select> <!-- &nbsp <span class="white">|</span> &nbsp -->
+				</select> <!-- -->
 			</div>
-			
+			<hr size="1">
 		</div>
 		
 		
@@ -274,7 +277,7 @@
 				<option value="3489660928">0xD0000000</option>
 				<option value="3758096384">0xE0000000</option>
 				<option value="4026531840">0xF0000000</option>
-				</select> &nbsp
+				</select>
 				
 				<select name="marked_memdump_size" id="marked_memdump_size" onchange="setMemDumpSize(this);">
 				<option value="268435456" id="gui_txt_memdump_size"></option>
@@ -322,7 +325,7 @@
 				<option value="266338281">0x0FDFFFE9</option>
 				<option value="268435455">* 0x0FFFFFFF *</option>
 				<option value="268435456">0x10000000</option>
-				</select> &nbsp <span class="white">|</span> &nbsp
+				</select> &nbsp
 				
 				<!--
 				<b><span class="white" id="gui_txt_memdump_range_presets"></span></b>
@@ -343,13 +346,13 @@
 				<br>-->
 				
 				<b><span class="white" id="gui_txt_memdump_address_start"></span></b>
-				<textarea id="marked_memdump_addr_edit" name="marked_memdump_addr_edit" cols="9" rows="1"></textarea> &nbsp
+				<textarea id="marked_memdump_addr_edit" name="marked_memdump_addr_edit" cols="10" rows="1"></textarea> &nbsp
 				<b><span class="white" id="gui_txt_memdump_address_end"></span></b>
-				<textarea id="marked_memdump_size_edit" name="marked_memdump_size_edit" cols="9" rows="1"></textarea> &nbsp
+				<textarea id="marked_memdump_size_edit" name="marked_memdump_size_edit" cols="10" rows="1"></textarea>&nbsp
 				<button id="memdump_save_new_values" onclick="saveMemdumpValues();"><span id="gui_txt_btn_memdump_set_values"></span></button>
 				<!--&nbsp&nbsp|&nbsp&nbsp-->
 			</div>
-			
+			<hr size="1">
 			<div id="file_directory_options">
 				<b><span class="white" id="gui_txt_group_user_id"></span></b>
 				<select name="marked_user_id" id="marked_user_id" onchange="setUserID(this);">
@@ -379,7 +382,7 @@
 				<option value="00000023">00000023</option>
 				<option value="00000024">00000024</option>
 				<option value="00000025">00000025</option>
-				</select> &nbsp <span class="white">|</span> &nbsp
+				</select> &nbsp
 				
 				<b><span class="white" id="gui_txt_group_permissions"></span></b>
 				<select name="marked_chmod" id="marked_chmod" onchange="chmodSet(this);" disabled>
@@ -395,14 +398,16 @@
 				<option value="" id="gui_txt_option_chown"></option>
 				<option value="0x00000000">* 0 *</option>
 				<option value="0x0000270F">9999</option>
-				</select> &nbsp <span class="white">|</span> &nbsp
+				</select>
+				
+				<br>
 				
 				<b><span class="white" id="gui_txt_group_filesize"></span></b>
-				<textarea id="file_size_edit" name="file_size_edit" cols="8" rows="1">140</textarea> <!-- 0x38C0 test payload -->
-				<button id="btn_file_size_edit" onclick="setFileSize();"><span id="gui_txt_btn_set_filesize"></span></button> &nbsp <span class="white">|</span> &nbsp
+				<textarea id="file_size_edit" name="file_size_edit" cols="10" rows="1">140</textarea>&nbsp <!-- 0x38C0 test payload -->
+				<button id="btn_file_size_edit" onclick="setFileSize();"><span id="gui_txt_btn_set_filesize"></span></button> &nbsp
 				
 				<b><span class="white" id="gui_txt_group_titleid"></span></b>
-				<textarea id="title_id_edit" name="title_id_edit" cols="8" rows="1">PS3XPLOIT</textarea>
+				<textarea id="title_id_edit" name="title_id_edit" maxlength="9" cols="9" rows="1" placeholder="PS3XPLOIT"></textarea>&nbsp
 				<button id="btn_title_id_edit" onclick="setTitleID();"><span id="gui_txt_btn_set_titleid"></span></button>
 			</div>
 			
@@ -522,11 +527,11 @@
 				<option value="photo" id="gui_txt_option_xmb_photo"></option>
 				<option value="music" id="gui_txt_option_xmb_music"></option>
 				<option value="video" id="gui_txt_option_xmb_video"></option>
-				</select> &nbsp 
-				<!-- <input name="copy_payload_media_browse" id="copy_payload_media_browse" type="file"> --> &nbsp 
-				<a href="payloads/payload.jpg" target="_blank"><button id="copy_payload_media_photo" onclick="copyPayloadMedia();" disabled ><span id="gui_txt_option_xmb_jpg_btn"></span></button></a>&nbsp&nbsp 
-				<a href="payloads/payload.mp3" target="_blank"><button id="copy_payload_media_music" onclick="copyPayloadMedia();" disabled ><span id="gui_txt_option_xmb_mp3_btn"></span></button></a>&nbsp&nbsp 
-				<a href="payloads/payload.mp4" target="_blank"><button id="copy_payload_media_video" onclick="copyPayloadMedia();" disabled ><span id="gui_txt_option_xmb_mp4_btn"></span></button></a>&nbsp&nbsp
+				</select>
+				<!-- <input name="copy_payload_media_browse" id="copy_payload_media_browse" type="file"> -->
+				<a href="payloads/payload.jpg" target="_blank"><button id="copy_payload_media_photo" onclick="copyPayloadMedia();" disabled ><span id="gui_txt_option_xmb_jpg_btn"></span></button></a>
+				<a href="payloads/payload.mp3" target="_blank"><button id="copy_payload_media_music" onclick="copyPayloadMedia();" disabled ><span id="gui_txt_option_xmb_mp3_btn"></span></button></a>
+				<a href="payloads/payload.mp4" target="_blank"><button id="copy_payload_media_video" onclick="copyPayloadMedia();" disabled ><span id="gui_txt_option_xmb_mp4_btn"></span></button></a>&nbsp
 				<span class="white"><b><i><span id="gui_txt_option_xmb_save_msg"></span></b></i></span>
 				
 				<!--<select name="marked_xmb_select_alt" id="marked_xmb_select_alt" onchange="setPayloadMediaType(this);">
@@ -545,7 +550,7 @@
 				<!-- <br>
 				<span id="gui_txt_group_payload_type_help"></span> -->
 			</div>
-		
+		    <hr size="1">
 		</div>
 		
 		
@@ -573,7 +578,7 @@
 			<option value="100">100MB</option>
 			<option value="110">110MB</option>
 			<option value="128">128MB</option>
-			</select> &nbsp
+			</select>
 			
 			<select name="marked_search_base_offset" id="marked_search_base_offset" onchange="searchBaseSelection(this);">
 			<option value="" id="gui_txt_option_search_base" selected ></option>
@@ -596,7 +601,7 @@
 			<option value="2155872256">0x80800000</option>
 			<option value="2156920832">0x80900000</option>
 			<option value="2157969408">0x80A00000</option>
-			</select> &nbsp
+			</select>
 			
 			<select name="marked_search_stack_adjust" id="marked_search_stack_adjust" onchange="searchBaseSelection();">
 			<option value="" id="gui_txt_option_search_stack" selected ></option>
@@ -615,7 +620,7 @@
 			<option value="2752512">0x2A0000</option>
 			<option value="3145728">0x300000</option>
 			<option value="4194304">0x400000</option>
-			</select> &nbsp
+			</select>
 			
 			<select name="marked_search_range_size" id="marked_search_range_size" onchange="searchRangeSelection(this);">
 			<option value="" id="gui_txt_option_search_range" selected ></option>
@@ -631,7 +636,7 @@
 			<option value="2097152">0x200000</option>
 			<option value="3145728">0x300000</option>
 			<option value="4194304">0x400000</option>
-			</select> &nbsp
+			</select>
 			
 			<select name="marked_search_max_loops" id="marked_search_max_loops" onchange="searchMaxLoops(this);">
 			<option value="" id="gui_txt_option_search_loops" selected ></option>
@@ -647,10 +652,10 @@
 			<option value="50">50</option>
 			<option value="75">75</option>
 			<option value="100">100</option>
-			</select> &nbsp <span class="white">|</span> &nbsp
+			</select>&nbsp
 			
 			<b><span class="white" id="gui_chk_search_verify_jumps"></span></b><input type="checkbox" id="verify_offsets" name="verify_offsets" onclick="verifyOffsetsToggle();" checked /> 
-			<b><span class="white" id="gui_chk_search_verify_stackframe"></span></b><input type="checkbox" id="verify_stackframe" name="verify_stackframe" onclick="verifyStackframeToggle();" /> &nbsp <span class="white">|</span> &nbsp
+			<b><span class="white" id="gui_chk_search_verify_stackframe"></span></b><input type="checkbox" id="verify_stackframe" name="verify_stackframe" onclick="verifyStackframeToggle();" />
 			<b><span class="white" id="gui_chk_search_debug_output"></span></b><input type="checkbox" id="debug_option" name="debug_option" onclick="debugToggle();"/>
 		</div>
 		
@@ -668,6 +673,7 @@
 		<div id="exploit" class="white"></div>
 		<div id="trigger" class="white"></div>
 		<div id="result" class="yellow"></div>
+		<hr size="1">
 		<div id="log" class="white"></div>
 		<div id="footer" class="white"></div>
 		

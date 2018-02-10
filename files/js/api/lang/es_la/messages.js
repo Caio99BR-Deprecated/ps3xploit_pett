@@ -1,37 +1,37 @@
-// Mensajes Predeterminados PS3 [Spanish LA]
+﻿// Mensajes Predeterminados PS3 [Spanish LA]
 // PS3Xploit Team 2018 / ps3xploit.com
 
 // Translation Credits: @Ripp3RkoS
-		
 
-var msg_select_vsh_type="Consola CEX?\n\nal Seleccionar NO se tomaran los offsets para DEX ";
+
+var msg_select_vsh_type="Consola CEX?\n\nal Seleccionar NO se tomaran los offsets para DEX";
 		
 var msg_detected_fw_1="FW Detectado: ";
 var msg_detected_fw_2=" ";
-//var msg_detected_fw_3=" / Version Fabrica: ";
+//var msg_detected_fw_3=" / MinVer: ";
 var msg_detected_fw_4=" | Soporta Todos los Modelos con Firmware 4.xx";
 
-var compat_msg_wrong_fw1="Tu PS3 no es Compatible! Tu version de FW Actual es";
+var compat_msg_wrong_fw1="Tu PS3 no es Compatible! Tu version de FW Actual es:";
 var compat_msg_wrong_fw2=", el cual no es compatible con PS3Xploit. Todas las Funciones deshabilitadas";
-var compat_msg_success1="Felicidades! Detectamos que tu PlayStation 3 tiene FW ";
+var compat_msg_success1="Felicidades! Detectamos que tu PlayStation 3 Tiene FW ";
 var compat_msg_success2=", el cual es Compatible con PS3Xploit! Disfruta!";
 
-var msg_option_not_available="Esta opcion aun no esta disponible!";
+var msg_option_not_available="Esta Opcion Aun no esta Disponible!";
 
 // Settings
-var msg_settings_load="Esto es experimental y carga opciones desde una cookie!";
+var msg_settings_load="Esto es experimental y carga opciones desde una cookie!!";
 var msg_settings_save="Esto es experimental y guarda opciones a una cookie!";
 
 // MinVer/CFW Compatibility
 var msg_minver_loaded_into_mem="MinVer Devuelve el valor cargado en memoria!\n\nPresiona nuevamente el Boton Ejecutar para Mostrar el Valor!";
-var msg_minver_start="Tu Version Minima para Downgrade es ";
-var msg_minver_mid=" y este ";
+var msg_minver_start="Tu Version Minima para Downgrade es  ";
+var msg_minver_mid="y este ";
 var msg_minver_end=" a la fecha es compatible con CFW!";
 
 // CELL/RSX Temperatures
 var msg_temps_loaded_into_mem="CELL/RSX Temp Devuelve el valor cargado en memoria!\n\nPresiona nuevamente el Boton Ejecutar para Mostrar el Valor!";
-var msg_temps_cell="Temperatura Procesador (CELL): ";
-var msg_temps_rsx="\n\nTemperatura GPU (RSX): ";
+var msg_temps_cell="Temperatura Procesador (CELL):";
+var msg_temps_rsx="\n\nTemperatura GPU (RSX):  ";
 var msg_temps_celcius=" Celcius";
 
 // MemDump
@@ -41,15 +41,13 @@ var msg_memdump_idps_vsh="Solo FW 4.66/4.81/4.82 esta soportado para el Dump  ID
 // Warnings
 var msg_fd_close_warning="Actualmente Los Descriptores de Archivos No se cierran Automaticamente!";
 var msg_remove_dir_warning="ADVERTENCIA!\n\nSe cuidadoso con esta syscall.\n\nPodrias eliminar un Directorio Importante y deberas Reinstalar Firmware !";
-var msg_warning_write_protection="Proteccion contra Escritura Deshabilitada!\n\nProceda con Cuidado!!!!";
+var msg_warning_write_protection="Proteccion contra Escritura Deshabilitada!\n\nProcede con Cuidado!!!!";
 
 var msg_cobra_only="ALERTA!\n\nEsto solo Funciona con COBRA ACTIVADO EN CFW!";
 
 var msg_mount_test="** En Fase de Prueba **!\n\nEsto Montara /dev_hdd1/\n\nAl Montar, puedes reiniciar el Navegador y usa la Cadena para Lect/Esc. de Archivos para hacer dump de la particion /dev_hdd1/ al destino!";
 
 // File Operations
-var msg_default_size="Using Default Size 0x140";
-var msg_new_size="New FileSize: 0x";
 var msg_default_size="Usando Peso Predet. 0x140";
 var msg_new_size="Nuevo Peso: 0x";
 var msg_destination_path_incorrect="Directorio Destino Incorrecto!\n\nDebes Fijarlo antes de cambiar la ID del Juego.";
@@ -63,24 +61,24 @@ var msg_search_offsets="<h3><b>Buscando Offsets En Memoria! Espera.... <br>Si te
 var msg_verify_offsets="<h3><b>Verificando Offsets En Memoria! Espera.... <br>Aun NO CIERRES el navegador!</b></h3>";
 
 // Fail Search Messages
-var msg_string_verify_fail="<h3><b><font color=%a210003%22>Imposible Verificar todos los Offsets!</font><font color=%227700DA%22> si la verificacion falla nuevamente, Reinicia el Navegador!</b></font></h3>";
-var msg_string_verify_fail_max="<h3><b><font color=%a210003%22>Imposible Verificar todos los Offsets!</font><font color=%227700DA%22> Reintentos maximos! Reinicia el Navegador!</b></font></h3>";
+var msg_string_search_fail="<h3><b><font color='#7700DA'>Imposible Hallar todos los Offsets!</font><font color='#7700DA'> Si la busqueda falla nuevamente, Ajusta opciones de busqueda o Reinicia el Navegador!</b></font></h3>";
+var msg_string_search_fail_max="<h3><b><font color='#7700DA'>Imposible Hallar todos los Offsets!</font><font color='#7700DA'> Reintentos maximos! Reinicia el Navegador</b></font></h3>";
 
 // Verify Strings Fail
-var msg_string_verify_fail="<h3><b><font color=%a210003%22>Imposible Verificar todos los Offsets!</font><font color=%227700DA%22> si la verificacion falla nuevamente, Reinicia el Navegador!</b></font></h3>";
-var msg_string_verify_fail_max="<h3><b><font color=%a210003%22>Imposible Verificar todos los Offsets!</font><font color=%227700DA%22> Reintentos maximos! Reinicia el Navegador!</b></font></h3>";
+var msg_string_verify_fail="<h3><b><font color='#7700DA'>Imposible Verificar todos los Offsets!</font><font color='#7700DA'> si la verificacion falla nuevamente, Reinicia el Navegador!</b></font></h3>";
+var msg_string_verify_fail_max="<h3><b><font color='#7700DA'>Imposible Verificar todos los Offsets!</font><font color='#7700DA'> Reintentos maximos! Reinicia el Navegador!</b></font></h3>";
 
 // Init Success
-var msg_success_init="<h3><b><font color=%22386E38%22>SUCCESS!</font><font color=%227700DA%22> <br>Ahora Puedes ejecutar tu Cadena ROP!</font></b></h3>";
+var msg_success_init="<h3><b><font color='#386E38'>EXITO!</font><font color='#7700DA'> <br>Ahora Puedes ejecutar tu Cadena ROP!</font></b></h3>";
 
 // Exec Success
-var success_chain_exec="<h3><b><font color=%22386E38%22>Cadena Ejecutada Exitosamente!</font></b></h3>";
-var success_chain_exec_press_again="<h3><b><font color=%22386E38%22>Presione el Boton Ejecutar una vez mas!</font></b></h3>";
-var success_chain_exec_psid="<h3><b><font color=%22386E38%22>PSID Dump Exitoso!</font></b></h3>";
-var success_chain_exec_idps="<h3><b><font color=%22386E38%22>IDPS Dump Exitoso!</font></b></h3>";
-var success_chain_exec_memdump="<h3><b><font color=%22386E38%22>DUMP de Memoria Exitoso!</font></b></h3>";
-var success_chain_exec_read_write_file="<h3><b><font color=%22386E38%22>Transferencia de Archivos Exitosa !</font></b></h3>";
-var success_mount_device="<h3><b><font color=%22386E38%22>Particion /dev_hdd1/ Montada Exitosamente! Reinicia el Navegador y ejecuta la Cadena Lect./Esc. de Archivos.</font></b></h3>";
+var success_chain_exec="<h3><b><font color='#386E38'>Cadena Ejecutada Exitosamente!</font></b></h3>";
+var success_chain_exec_press_again="<h3><b><font color='#386E38'>Presione el Boton Ejecutar una vez mas!</font></b></h3>";
+var success_chain_exec_psid="<h3><b><font color='#386E38'>PSID Dump Exitoso!</font></b></h3>";
+var success_chain_exec_idps="<h3><b><font color='#386E38'>IDPS Dump Exitoso!</font></b></h3>";
+var success_chain_exec_memdump="<h3><b><font color='#386E38'>DUMP de Memoria Exitoso!</font></b></h3>";
+var success_chain_exec_read_write_file="<h3><b><font color='#386E38'>Transferencia de Archivos Exitosa !</font></b></h3>";
+var success_mount_device="<h3><b><font color='#386E38'>Particion /dev_hdd1/ Montada Exitosamente! Reinicia el Navegador y ejecuta la Cadena Lect./Esc. de Archivos.</font></b></h3>";
 
 // Compatibility/Offset Messages
 var ua_msg="<hr><h3>Info Navegador PS3: "+navigator.userAgent+ "</h3>";
@@ -104,17 +102,15 @@ var msg_get_device_info2="\n\nUsa para cadena sys_storage_report_devices";
 
 var msg_debug_placeholder="Lazy XP +1";
 
-ar msg_stackframe_check="Esto Comprobara el Marco de Pila Predeterminado .\n\nSi se cuelga o no muestra el Mensaje exito, entonces hay un problema!";
+var msg_stackframe_check="This will check the default stackframe for problems.\n\nIf it crashes or does not display a success message, then there is an issue!";
 
 // String Matching
-var msg_stackframe_check="Esto Comprobara el Marco de Pila Predeterminado .\n\nSi se cuelga o no muestra el Mensaje exito, entonces hay un problema!";
-// String Matching
-var verify_fail="<font color=%a210003%22>FALLO: Cadenas No coinciden en memoria!</font>";
-var verify_success="<font color=%222a1003%22>EXITO: Cadenas Halladas en Memoria!</font>";
-var verify_skip="<font color=%222a1003%22>EXITO: Cadenas sin verificar en Memoria!</font>";
+var verify_fail="<font color='#7700DA'>FALLO: Cadenas No coinciden en memoria!</font>";
+var verify_success="<font color='#2a1003'>EXITO: Cadenas Halladas en Memoria!</font>";
+var verify_skip="<font color='#2a1003'>EXITO: Cadenas sin verificar en Memoria!</font>";
 
 var msg_search_flash_type_start="Parametros de Busqueda para";
-var msg_search_flash_type_end=" tipo de Flasheo!";
+var msg_search_flash_type_end=" tipo de Flash!";
 
 var msg_check_memory="Chequeo de Memoria: ";
 var msg_chk_mem_arg_error="Error de Argumentos para Chequeo de Memoria! peso=0x";
@@ -137,21 +133,21 @@ var msg_no_chain_selected="sin Cadena ROP Chain Seleccionada\n\nUsa la ventana d
 var msg_media_not_supported="Este medio de almacenamiento aun no esta implementado!";
 var msg_cannot_continue="No se puede Continuar....Regresando!";
 
-var msg_invalid_title_id="ALERTA!\n\nLa ID del Titulo Introducido es Incorrecto!\n\nUsando ID Predeterminada.";
+var msg_invalid_title_id="ALERTA!\n\nLa ID del Juego Introducido es Incorrecto!\n\nUsando ID Predeterminada.";
 
 
 // index GUI text
-var gui_title="Plantilla para Tutorial PS3Xploit <font color=%22000000%22>v0.0.9</font>";
-var gui_team="por PS3Xploit Team: <b><font color=%227700DA%22>W</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>esc0rtd3w</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>habib</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>bguerville</font></b>";
-var gui_credits="<b>Agradecimientos a xerpi por el port del exploit de memoria de usuario del PS3, a zecoxao y Joonie por su soporte temprano y continuo, mysis por documentar vsh exports y plugins, desde luego a los contribuidores del psdevwiki, a STLcardsWS por su prologada y efectiva contribucion y a toda la Comunidad PS3 de Hackers/Desarrolladores pasados y presentes, Tu sabes quien eres. Gracias tambien a littlebalup por dar la idea y la implementacion js que usamos para elaborar la edicion HDD de Dumpers y Flasher. gracias ademas a B7U3 C50SS, Endless, y 0x1991337 por testear los syscall del tutorial  y otra ayuda!</font> <font color=%22white_smaller%22><b>Mas Detalles y Noticias en <a href=%22http://www.psx-place.com%22>http://www.psx-place.com</a>. Sitio Oficial <a href=%22http://ps3xploit.com%22>http://ps3xploit.com</a></b>";
+var gui_title="Plantilla para Tutorial PS3Xploit <font color='#000000'>v0.0.9</font>";
+var gui_team="por PS3Xploit Team: <b><font color='#7700DA'>W</font><font color='#FFFFFF'> | </font><font color='#7700DA'>esc0rtd3w</font><font color='#FFFFFF'> | </font><font color='#7700DA'>habib</font><font color='#FFFFFF'> | </font><font color='#7700DA'>bguerville</font></b>";
+var gui_credits="<b>Agradecimientos a xerpi por el port del exploit de memoria de usuario del PS3, a zecoxao y Joonie por su soporte temprano y continuo, mysis por documentar vsh exports y plugins, desde luego a los contribuidores del psdevwiki, a STLcardsWS por su prologada y efectiva contribucion y a toda la Comunidad PS3 de Hackers/Desarrolladores pasados y presentes, Tu sabes quien eres. Gracias tambien a littlebalup por dar la idea y la implementacion js que usamos para elaborar la edicion HDD de Dumpers y Flasher. gracias ademas a B7U3 C50SS, Endless, y 0x1991337 por testear los syscall del tutorial  y otra ayuda!</font> <font color='#white_smaller'><b>Mas Detalles y Noticias en <a href='http://www.psx-place.com'>http://www.psx-place.com</a>. Sitio Oficial <a href='http://ps3xploit.com'>http://ps3xploit.com</a></b>";
 
 // Checkboxes First Section
 var gui_chk_default_settings="Configuracion Predet.:";
 var gui_chk_disable_trigger="Deshabilitar Lanzador:";
 var gui_chk_write_protect="Protec. Escritura";
 var gui_chk_flash_type_nand="NAND:";
-var gui_chk_flash_type_nor=" &nbsp NOR:";
-var gui_chk_flash_type_emmc=" &nbsp eMMC:";
+var gui_chk_flash_type_nor=" NOR:";
+var gui_chk_flash_type_emmc=" eMMC:";
 
 // Reboot Mode
 var gui_chk_reboot_mode="Modo de Reinicio:";
@@ -198,7 +194,7 @@ var gui_txt_option_fun_test="Prueba Bips";
 
 // Other Syscall Chains
 
-// Memory/System
+// Memory/Syatem
 var gui_txt_syscall_group_mem_sys="Memoria/Sistema: ";
 var gui_txt_syscall_chains_mem_sys="Memoria";
 var gui_txt_option_sys_rsx_memory_free="sys_rsx_memory_free";
@@ -313,21 +309,21 @@ var gui_txt_btn_memdump_set_values="Fijar Nuevos Valores";
 
 
 var gui_txt_group_user_id="ID Usuario:";
-var gui_txt_option_user_id_default="* Preseterminado *";
+var gui_txt_option_user_id_default="* Predeterminado *";
 
 
 var gui_txt_group_permissions="Permisos:";
 var gui_txt_option_chmod="chmod";
 var gui_txt_option_chown="chown";
 
-var gui_txt_group_filesize="Peso Archivo 0x:";
+var gui_txt_group_filesize="Peso Archivo:";
 var gui_txt_group_titleid="ID del Juego:";
 
 var gui_txt_btn_set_filesize="Establecer";
 var gui_txt_btn_set_titleid="Establecer";
 
 var gui_txt_group_path_source="Origen:";
-var gui_txt_group_path_destination="Destinatino: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp";
+var gui_txt_group_path_destination="Destino: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp";
 
 // XMB Transfer
 var gui_txt_syscall_group_xmb_transfer="Opciones Transferencia XMB ";
@@ -361,14 +357,8 @@ var gui_txt_search_found_offsets="<b>Offsets Hallados: base_fp: 0x0 | stack_fram
 var gui_txt_option_init_rop_btn="Iniciar Cadena ROP";
 var gui_txt_option_exec_rop_btn="Ejecutar Cadena ROP";
 var gui_txt_option_reload_page_btn="Recargar Pagina";
-var gui_txt_option_reset_btn="Reiniciar Opcioness";
+var gui_txt_option_reset_btn="Reiniciar Opciones";
 var gui_txt_option_load_settings_btn="Cargar Configuracion";
 var gui_txt_option_save_settings_btn="Guardar Configuracion";
 var gui_txt_option_debug_show_var_btn="Mostrar Todas las Variables";
-
-
-
-
-
-
 

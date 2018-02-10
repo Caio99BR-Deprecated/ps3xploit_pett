@@ -1,4 +1,4 @@
-/* GUI Template */
+﻿/* GUI Template */
 /* PS3Xploit Team 2018 / ps3xploit.com */
 
 
@@ -6,13 +6,14 @@
 
 
 #gui_title {
-	float: left;
+	text-align: left;
 	margin-bottom: 10px;
-	font-size: 36px;
+	font-size: 2em;
+	font-weight: bold;
 }
 
 #gui_team {
-	float: left;
+	text-align: left;
 	margin-top: 3px;
 	margin-bottom: 3px;
 	font-size: 16px;
@@ -26,108 +27,65 @@ div #fwVerText {
 }
 
 div #gui_credits {
-	float: left;
-	margin-top: 10px;
-	margin-bottom: 20px;
+	text-align: left;
 	font-size: 16px;
-	padding: 5px 0 5px 0;
-	border-style: solid;
-	border-color: #8c8b8b;
-	border-width: 1px 0 1px 0;
 }
 
 #top_row {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 20px;
-	padding: 5px 0 5px 0;
-	border-style: solid;
-	border-color: #8c8b8b;
-	border-width: 1px 0 1px 0;
+	text-align: left;
 }
 
 #chain_stackframe {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 3px;
+	text-align: left;
 }
 
 #preset_chains {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 3px;
-	padding: 5px 0 0 0;
-	border-style: solid;
-	border-color: #8c8b8b;
-	border-width: 1px 0 0 0;
+	text-align: left;
 }
 
 #memory_sys_chains {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 3px;
+	text-align: left;
 }
 
 #proc_thread_chains {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 3px;
+	text-align: left;
 }
 
 #network_chains {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 20px;
-	padding: 0 0 5px 0;
-	border-style: solid;
-	border-color: #8c8b8b;
-	border-width: 0 0 1px 0;
+	text-align: left;
 }
 
 #debugging_chains {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 10px;
+	text-align: left;
 }
 
 #led_chains {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 10px;
+	text-align: left;
 }
 
 #memdump_options {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 20px;
+	text-align: left;
 }
 
 #file_path_selections {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 3px;
+	text-align: left;
 }
 
 #file_directory_options {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 3px;
+	text-align: left;
 }
 
 #file_directory_path_options {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 3px;
+	text-align: left;
+	margin: 20px 0;
 }
 
 #xmb_transfer_options {
-	float: left;
-	margin-top: 3px;
-	margin-bottom: 20px;
+	text-align: left;
 }
 
 #search_setup {
-	float: left;
+	text-align: left;
 	margin-top: 3px;
 	margin-bottom: 20px;
 }
@@ -137,40 +95,39 @@ div #gui_credits {
 }
 
 #buttons_launch {
-	float: left;
+	text-align: left;
 	margin-top: 3px;
-	margin-bottom: 20px;
 }
 
 
 
 
 #exploit {
-	float: left;
+	text-align: left;
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
 
 #trigger {
-	float: left;
+	text-align: left;
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
 
 #result {
-	float: left;
+	text-align: left;
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
 
 #log {
-	float: left;
+	text-align: left;
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
 
 #footer {
-	float: left;
+	text-align: left;
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
@@ -185,23 +142,35 @@ div #gui_credits {
 	margin: 3px 5px 5px 5px; 
 } */
 
-textarea, input { 
+textarea {
     vertical-align: middle;
-    margin: 3px 5px 4px 0;
+    margin: 3px 0 5px 0;
+	resize: none
 }
 
-a { 
-	color: RoyalBlue; 
-	text-decoration: none; 
+input {
+    vertical-align: middle;
+    margin: 3px 5px 5px 5px;
 }
 
-a:hover { 
-	color: Red; 
-	text-decoration: underline; 
+select, button {
+    vertical-align: middle;
+    margin: 3px 0 4px 0;
 }
 
-.bg {
+a {
+	color: RoyalBlue;
+	text-decoration: none;
+}
+
+a:hover {
+	color: Red;
+	text-decoration: underline;
+}
+
+body {
     background-color: #000000;
+    max-width: 100%
 }
 
 .red {

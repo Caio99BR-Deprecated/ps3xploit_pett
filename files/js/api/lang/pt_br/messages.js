@@ -1,26 +1,21 @@
-// Mensagens Padrões do PS3Xploit [Portuguese BR] 
+﻿// Mensagens Padrões do PS3Xploit [Portuguese BR] 
 // PS3Xploit Team 2018 / ps3xploit.com
 
 // Translation Credits: @HollowChris and @Caio99BR
 
-// CEX or DEX, that is the question
+
 var msg_select_vsh_type="Usar a CEX?\n\nSelecionando NÃO, será usado os offsets da DEX";
 
-// Auto Detect Firmware
 var msg_detected_fw_1="Firmware Detectado: ";
 var msg_detected_fw_2=" ";
 //var msg_detected_fw_3=" / Versão Mínima: ";
 var msg_detected_fw_4=" | Suporta TODOS os modelos e o firmware 4.xx";
 
-// Sorry, your PS3 isn't on the guest list
 var compat_msg_wrong_fw1="O seu PS3 não é uma versão compativel! A versão do firmware atual é ";
 var compat_msg_wrong_fw2=", e não é compativel com o PS3Xploit. Todas as funções foram desativadas";
-
-// Congratulations, welcome to the party!
 var compat_msg_success1="Parabéns! Nós detectamos que o seu PlayStation 3 está no firmware ";
 var compat_msg_success2=", e é compatível com o PS3Xploit! Aproveite!";
 
-// Option not available
 var msg_option_not_available="Esta opção ainda não está disponível!";
 
 // Settings
@@ -48,10 +43,8 @@ var msg_fd_close_warning="Os descritores de arquivos (FDs) atualmente não são 
 var msg_remove_dir_warning="ATENÇÃO!\n\nTome cuidado ao usar este chamada do sistema (syscall).\n\nVocê pode remover uma pasta essencial e ter que reinstalar todo o firmware!";
 var msg_warning_write_protection="A proteção contra escrita foi desativada!\n\nCONTINUE COM CUIDADO!!!!";
 
-// Cobra Alert
 var msg_cobra_only="ALERTA!\n\nIsto só FUNCIONA com o COBRA ativado na CFW!";
 
-// Mount Alert
 var msg_mount_test="** EM FASE DE TESTE **!\n\nIsto irá montar a partição /dev_hdd1/\n\nAssim que montado você poderá reiniciar o navegador e utilizar a cadeia de Leitura/Escrita de Arquivos para fazer o dump da partição /dev_hdd1/ para o destino!";
 
 // File Operations
@@ -142,6 +135,7 @@ var msg_cannot_continue="Não foi possível continuar... Retornando!";
 
 var msg_invalid_title_id="ALERTA!\n\nO Title ID inserido tem um tamanho invalido!\n\nUsando ID padrão.";
 
+
 // index GUI text
 var gui_title="PS3 Exploitation Tutorial Template <font color=%22000000%22>v0.0.9</font>"; // DON'T NEED TO BE TRANSLATED
 var gui_team="by PS3Xploit Team: <b><font color=%227700DA%22>W</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>esc0rtd3w</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>habib</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>bguerville</font></b>";  // DON'T NEED TO BE TRANSLATED
@@ -152,8 +146,8 @@ var gui_chk_default_settings="Default Settings:";
 var gui_chk_disable_trigger="Disable Trigger:";
 var gui_chk_write_protect="Write Protect:";
 var gui_chk_flash_type_nand="NAND:";
-var gui_chk_flash_type_nor=" &nbsp NOR:";
-var gui_chk_flash_type_emmc=" &nbsp eMMC:";
+var gui_chk_flash_type_nor=" NOR:";
+var gui_chk_flash_type_emmc=" eMMC:";
 
 // Reboot Mode
 var gui_chk_reboot_mode="Reboot Mode:";
@@ -162,8 +156,8 @@ var gui_chk_reboot_mode_soft="Soft Reboot";
 var gui_chk_reboot_mode_hard="Hard Reboot";
 var gui_chk_reboot_mode_off="Power Down";
 
+
 // ROP Chain Text
-//
 
 // Preset Chains
 var gui_txt_preset_chains="Preset Chains: ";
@@ -197,8 +191,8 @@ var gui_txt_option_dir_read_write_test="Read/Write Directory Test";
 var gui_txt_preset_chains_fun="Fun";
 var gui_txt_option_fun_test="Beep Test";
 
+
 // Other Syscall Chains
-//
 
 // Memory/Syatem
 var gui_txt_syscall_group_mem_sys="Memory/System: ";
@@ -230,8 +224,8 @@ var gui_txt_option_sys_fs_unmount="sys_fs_unmount";
 var gui_txt_syscall_chains_system="System";
 var gui_txt_option_sys_ss_utoken_if="sys_ss_utoken_if";
 
+
 // Process/Thread
-//
 
 // Process
 var gui_txt_syscall_group_proc_thread="Process/Thread: ";
@@ -322,7 +316,7 @@ var gui_txt_group_permissions="Permissions:";
 var gui_txt_option_chmod="chmod";
 var gui_txt_option_chown="chown";
 
-var gui_txt_group_filesize="File Size 0x:";
+var gui_txt_group_filesize="File Size:";
 var gui_txt_group_titleid="TitleID:";
 
 var gui_txt_btn_set_filesize="Set";
