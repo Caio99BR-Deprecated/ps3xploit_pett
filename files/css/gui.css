@@ -1,0 +1,376 @@
+/* GUI Template */
+/* PS3Xploit Team 2018 / ps3xploit.com */
+
+
+/* thanks @ErikPshat for all the HTML and CSS help */
+
+
+#gui_title {
+	float: left;
+	margin-bottom: 10px;
+	font-size: 36px;
+}
+
+#gui_team {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	font-size: 16px;
+}
+
+div #fwVerText {
+	float: right;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	font-size: 16px;
+}
+
+div #gui_credits {
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-size: 16px;
+	padding: 5px 0 5px 0;
+	border-style: solid;
+	border-color: #8c8b8b;
+	border-width: 1px 0 1px 0;
+}
+
+#top_row {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 20px;
+	padding: 5px 0 5px 0;
+	border-style: solid;
+	border-color: #8c8b8b;
+	border-width: 1px 0 1px 0;
+}
+
+#chain_stackframe {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#preset_chains {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding: 5px 0 0 0;
+	border-style: solid;
+	border-color: #8c8b8b;
+	border-width: 1px 0 0 0;
+}
+
+#memory_sys_chains {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#proc_thread_chains {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#network_chains {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 20px;
+	padding: 0 0 5px 0;
+	border-style: solid;
+	border-color: #8c8b8b;
+	border-width: 0 0 1px 0;
+}
+
+#debugging_chains {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 10px;
+}
+
+#led_chains {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 10px;
+}
+
+#memdump_options {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 20px;
+}
+
+#file_path_selections {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#file_directory_options {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#file_directory_path_options {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#xmb_transfer_options {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 20px;
+}
+
+#search_setup {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 20px;
+}
+
+#gui_txt_search_found_offsets {
+	margin-bottom: 20px;
+}
+
+#buttons_launch {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 20px;
+}
+
+
+
+
+#exploit {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#trigger {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#result {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#log {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#footer {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+
+
+
+
+
+/* textarea, input { 
+	vertical-align: middle; 
+	margin: 3px 5px 5px 5px; 
+} */
+
+textarea, input { 
+    vertical-align: middle;
+    margin: 3px 5px 4px 0;
+}
+
+a { 
+	color: RoyalBlue; 
+	text-decoration: none; 
+}
+
+a:hover { 
+	color: Red; 
+	text-decoration: underline; 
+}
+
+.bg {
+    background-color: #000000;
+}
+
+.red {
+    color: red;
+}
+
+.red_small {
+    color: red;
+	font-size: 16px
+}
+
+.red_smaller {
+    color: red;
+	font-size: 14px
+}
+
+.red_smallest {
+    color: red;
+	font-size: 10px
+}
+
+.blue {
+    color: blue;
+}
+
+.blue_small {
+    color: blue;
+	font-size: 16px
+}
+
+.blue_smaller {
+    color: blue;
+	font-size: 14px
+}
+
+.blue_smallest {
+    color: blue;
+	font-size: 10px
+}
+
+.green {
+    color: green;
+}
+
+.green_small {
+    color: green;
+	font-size: 16px
+}
+
+.green_smaller {
+    color: green;
+	font-size: 14px
+}
+
+.green_smallest {
+    color: green;
+	font-size: 10px
+}
+
+.black {
+    color: black;
+}
+
+.black_small {
+    color: black;
+	font-size: 16px
+}
+
+.black_smaller {
+    color: black;
+	font-size: 14px
+}
+
+.black_smallest {
+    color: black;
+	font-size: 10px
+}
+
+.orange {
+    color: #EF6601;
+}
+
+.orange_small {
+    color: #EF6601;
+	font-size: 16px
+}
+
+.orange_smaller {
+    color: #EF6601;
+	font-size: 14px
+}
+
+.orange_smallest {
+    color: #EF6601;
+	font-size: 10px
+}
+
+.yellow {
+    color: #EFDD01;
+}
+
+.yellow_small {
+    color: #EFDD01;
+	font-size: 16px
+}
+
+.yellow_smaller {
+    color: #EF6601;
+	font-size: 14px
+}
+
+.yellow_smallest {
+    color: #EF6601;
+	font-size: 10px
+}
+
+.teal {
+    color: #01E1EF;
+}
+
+.teal_small {
+    color: #01E1EF;
+	font-size: 16px
+}
+
+.teal_smaller {
+    color: #01E1EF;
+	font-size: 14px
+}
+
+.teal_smallest {
+    color: #01E1EF;
+	font-size: 10px
+}
+
+.pink {
+    color: #FF69B4;
+}
+
+.pink_small {
+    color: #FF69B4;
+	font-size: 16px
+}
+
+.pink_smaller {
+    color: #FF69B4;
+	font-size: 14px
+}
+
+.pink_smallest {
+    color: #FF69B4;
+	font-size: 10px
+}
+
+.white {
+    color: white;
+}
+
+.white_small {
+    color: white;
+	font-size: 16px
+}
+
+.white_smaller {
+    color: white;
+	font-size: 14px
+}
+
+.white_smallest {
+    color: white;
+	font-size: 10px
+}

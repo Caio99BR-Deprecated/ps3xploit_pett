@@ -1,0 +1,369 @@
+// Mensagens Padrões do PS3Xploit [Portuguese BR] 
+// PS3Xploit Team 2018 / ps3xploit.com
+
+// Translation Credits: @HollowChris and @Caio99BR
+
+// CEX or DEX, that is the question
+var msg_select_vsh_type="Usar a CEX?\n\nSelecionando NÃO, será usado os offsets da DEX";
+
+// Auto Detect Firmware
+var msg_detected_fw_1="Firmware Detectado: ";
+var msg_detected_fw_2=" ";
+//var msg_detected_fw_3=" / Versão Mínima: ";
+var msg_detected_fw_4=" | Suporta TODOS os modelos e o firmware 4.xx";
+
+// Sorry, your PS3 isn't on the guest list
+var compat_msg_wrong_fw1="O seu PS3 não é uma versão compativel! A versão do firmware atual é ";
+var compat_msg_wrong_fw2=", e não é compativel com o PS3Xploit. Todas as funções foram desativadas";
+
+// Congratulations, welcome to the party!
+var compat_msg_success1="Parabéns! Nós detectamos que o seu PlayStation 3 está no firmware ";
+var compat_msg_success2=", e é compatível com o PS3Xploit! Aproveite!";
+
+// Option not available
+var msg_option_not_available="Esta opção ainda não está disponível!";
+
+// Settings
+var msg_settings_load="Isto é experimental e carrega configurações de um cookie!";
+var msg_settings_save="Isto é experimental e salva configurações em um cookie!";
+
+// MinVer/CFW Compatibility
+var msg_minver_loaded_into_mem="A versão mínima retorna um valor carregado na memória!\n\nPressione o botão Executar novamente para carregar e exibir este valor!";
+var msg_minver_start="Sua versão mínima para Downgrade é ";
+var msg_minver_mid=" e é ";
+var msg_minver_end=" compatível com CFW!";
+
+// CELL/RSX Temperatures
+var msg_temps_loaded_into_mem="A temperatura do CELL/RSX (CPU/GPU) retorna um valor carregado na memória!\n\nPressione o botão Executar novamente para carregar e exibir este valor!";
+var msg_temps_cell="Temperatura do CELL (CPU): ";
+var msg_temps_rsx="\n\nTemperatura do RSX (GPU): ";
+var msg_temps_celcius=" ºC";
+
+// MemDump
+var msg_memdump_warning="Atenção!\n\nEste teste irá travar se uma área não alocada da memória for atingida durante o processo de dump!\n\nVocê terá um dump válido, até o momento que o teste travar!";
+var msg_memdump_idps_vsh="Somente os firmwares 4.66/4.81/4.82 suportam Dump IDPS direto da Memória VSH!\n\nO IDPS Dump direto da Memória VSH é diferente das demais cadeias.\n\nTodos os outros firmwares provavelmente irão fazer um dump só com 0s.";
+
+// Warnings
+var msg_fd_close_warning="Os descritores de arquivos (FDs) atualmente não são fechados automaticamente!";
+var msg_remove_dir_warning="ATENÇÃO!\n\nTome cuidado ao usar este chamada do sistema (syscall).\n\nVocê pode remover uma pasta essencial e ter que reinstalar todo o firmware!";
+var msg_warning_write_protection="A proteção contra escrita foi desativada!\n\nCONTINUE COM CUIDADO!!!!";
+
+// Cobra Alert
+var msg_cobra_only="ALERTA!\n\nIsto só FUNCIONA com o COBRA ativado na CFW!";
+
+// Mount Alert
+var msg_mount_test="** EM FASE DE TESTE **!\n\nIsto irá montar a partição /dev_hdd1/\n\nAssim que montado você poderá reiniciar o navegador e utilizar a cadeia de Leitura/Escrita de Arquivos para fazer o dump da partição /dev_hdd1/ para o destino!";
+
+// File Operations
+var msg_default_size="Utilizando o tamanho padrão 0x140";
+var msg_new_size="Novo Tamanho de Arquivo: 0x";
+var msg_destination_path_incorrect="O caminho de destino está incorreto!\n\nIsto deve ser alterado antes de trocar o Title ID.";
+
+// Trigger Messages
+var trigger_msg="Engatilhando exploit...";
+var trigger_msg2="Gatilho: 0x";
+
+// Search Strings
+var msg_search_offsets="<h3><b>Procurando por offsets na memória! Por favor espere.... <br>Se você é impaciente, feche o navegador e tente novamente em 60-90 segundos</b></h3>";
+var msg_verify_offsets="<h3><b>Verificando os offsets na memória! Por favor espere.... <br>NÃO FECHE o navegador agora!!</b></h3>";
+
+// Fail Search Messages
+var msg_string_search_fail="<h3><b><font color=%227700DA%22>Não encontrou todos os offsets!</font><font color=%227700DA%22> Se a busca falhar novamente, ajuste as configurações de busca ou REINICIE o navegador!</b></font></h3>";
+var msg_string_search_fail_max="<h3><b><font color=%227700DA%22>Não encontrou todos os offsets!</font><font color=%227700DA%22> Máximo de tentativas alcançado! Por favor, REINICIEo o navegador!</b></font></h3>";
+
+// Verify Strings Fail
+var msg_string_verify_fail="<h3><b><font color=%227700DA%22>Não verificou todos os offsets!</font><font color=%227700DA%22> Se a verificação falhar novamente, REINICIE o navegador!</b></font></h3>";
+var msg_string_verify_fail_max="<h3><b><font color=%227700DA%22>Não verificou todos os offsets!</font><font color=%227700DA%22> Máximo de tentativas alcançada! Por favor, REINICIE o navegador!</b></font></h3>";
+
+// Init Success
+var msg_success_init="<h3><b><font color=%22386E38%22>SUCESSO!</font><font color=%227700DA%22> <br>Agora você pode executar sua cadeia!</font></b></h3>";
+
+// Exec Success
+var success_chain_exec="<h3><b><font color=%22386E38%22>Cadeia executada com sucesso!</font></b></h3>";
+var success_chain_exec_press_again="<h3><b><font color=%22386E38%22>Pressione o botão de Executar mais uma vez!</font></b></h3>";
+var success_chain_exec_psid="<h3><b><font color=%22386E38%22>PSID Dump feito com sucesso!</font></b></h3>";
+var success_chain_exec_idps="<h3><b><font color=%22386E38%22>IDPS Dump feito com sucesso!</font></b></h3>";
+var success_chain_exec_memdump="<h3><b><font color=%22386E38%22>Dump da Memória feito com sucesso!</font></b></h3>";
+var success_chain_exec_read_write_file="<h3><b><font color=%22386E38%22>Transferido da Origem para o Destino com sucesso!</font></b></h3>";
+var success_mount_device="<h3><b><font color=%22386E38%22>Partição /dev_hdd1/ montada com sucesso! Reinicie o navegador e utilize a cadeia de Leitura/Escrita de Arquivos para usar o dump.</font></b></h3>";
+
+// Compatibility/Offset Messages
+var ua_msg="<hr><h3>Informações do Navegador do Sistema PS3: "+navigator.userAgent+ "</h3>";
+var compat_msg_nops3="Você não está em um Sistema PlayStation! Todos os recursos foram desativados.";
+var compat_msg_devs="Isto é destinado apenas para DESENVOLVEDORES!\n\nOffsets CEX precisam ser manualmente adicionados no arquivo /js/chains/offsets.js, baseado em seus offsets DEX em uso para cada cadeia.";
+var experimental="Configure sua página principal para ser essa página!\n\nUSE POR SUA CONTA E RISCO!\nPode conter bugs e algumas coisas que não funcionam!\n\nTodos os modelos em 4.xx CEX e 4.81 DEX são suportados";
+
+// Other Messages
+var msg_prerelease="ESTA É UMA LANÇAMENTO PRÉVIO INICIAL!\n\nSUPORTE A FIRMWARES MAIS ANTIGOS ESTÁ FUNCIONANDO APENAS PARCIALMENTE!\n\nAPENAS FIRMWARES 4.81/4.82 ATÉ O PRÓXIMO LANÇAMENTO!";
+var msg_thread_name="Hello_From_PS3Xploit"; // DON'T NEED TO BE TRANSLATED
+
+// Anti-Piracy Warning
+var msg_anti_piracy="AVISO LEGAL\n\nNós NÃO toleramos ou aprovamos PIRATARIA de qualquer tipo!\n\nAo usar este tutorial, e clicando em SIM, você concorda em usá-lo APENAS para fins educacionais!";
+var msg_anti_piracy_edat="AVISO LEGAL ANTI-PIRATARIA!\n\nEsta opção destina-se apenas a fins de teste e desenvolvimento, e não deve ser abusada!\n\nAo clicar em SIM, você aceita usar isso apenas com títulos que foram comprados!";
+
+// Devices
+var msg_device_loaded_into_mem="Dispositivo retornado na memória!\n\nPressione o botão Executar novamente para carregar e exibir este valor!";
+var msg_get_device_info1="Dispositivo Retornado: ";
+var msg_get_device_info2="\n\nUse ito para a cadeia sys_storage_report_devices";
+
+// Debugging
+//
+
+var msg_debug_placeholder="Lazy XP +1"; // DON'T NEED TO BE TRANSLATED
+var msg_stackframe_check="Isto vai checar o stackframe padrão procurando por problemas.\n\nSe isso travar ou não mostrar uma mensagem de sucesso, então existe um problema!";
+
+// String Matching
+var verify_fail="<font color=%227700DA%22>FALHA: Sequência não encontrada na memória!</font>";
+var verify_success="<font color=%222a1003%22>SUCESSO: Sequência encontrada na memória!</font>";
+var verify_skip="<font color=%222a1003%22>SUCCESS: Sequência não verificada na memória!</font>";
+
+var msg_search_flash_type_start="Search Params Set For ";
+var msg_search_flash_type_end=" Flash Type!";
+
+var msg_check_memory="checkMemory: "; // DON'T NEED TO BE TRANSLATED
+var msg_chk_mem_arg_error="Erro nos argumentos da função checkMemory! size=0x";
+var msg_malformed_html="HTML Inválido!";
+var msg_string_located=" Encontrado no offset: 0x";
+var msg_string_not_located="não pode ser encontrado no intervalo";
+
+// Found Offsets
+var msg_found_offsets="Offsets Encontrados: ";
+var msg_verified_offsets="Offsets Verificados: ";
+var offset_find_success="success"; // DON'T NEED TO BE TRANSLATED
+var offset_find_base_fp="base_fp"; // DON'T NEED TO BE TRANSLATED
+var offset_find_stack_frame="stack_frame"; // DON'T NEED TO BE TRANSLATED
+var offset_find_jump2="jump2"; // DON'T NEED TO BE TRANSLATED
+var offset_find_jump1="jump1"; // DON'T NEED TO BE TRANSLATED
+
+var msg_page_args_not_set="Argumentos da pagina não definidos!\n\nClique no botão de Argumentos e tente novamente!";
+var msg_no_chain_selected="Nenhuma Cadeia HEX ROP selecionada\n\nUtilize a Caixa de Seleção para escolher uma cadeia";
+var msg_media_not_supported="Esta mídia ainda não foi implementada.";
+var msg_cannot_continue="Não foi possível continuar... Retornando!";
+
+var msg_invalid_title_id="ALERTA!\n\nO Title ID inserido tem um tamanho invalido!\n\nUsando ID padrão.";
+
+// index GUI text
+var gui_title="PS3 Exploitation Tutorial Template <font color=%22000000%22>v0.0.9</font>"; // DON'T NEED TO BE TRANSLATED
+var gui_team="by PS3Xploit Team: <b><font color=%227700DA%22>W</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>esc0rtd3w</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>habib</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>bguerville</font></b>";  // DON'T NEED TO BE TRANSLATED
+var gui_credits="<b>Agradeço à @xerpi pelo port para o PS3 do exploit de vazamento de memória no ambiente de usuário, @zecoxao & @Joonie pela suporte inicial e contínuo, @mysis por documentar os plugins e exports, the psdevwiki contributors of course, STLcardsWS for his long standing contribution & all ps3 community hackers/devs past & present, you know who you are. Thanks to littlebalup as well for providing the idea & the related js implementation we used to make the HDD edition of the Dumpers and Flasher. Also thanks to B7U3 C50SS, Endless, and 0x1991337 for tutorial syscall testing and other help!</font> <font color=%22white_smaller%22><b>More details & news on <a href=%22http://www.psx-place.com%22>http://www.psx-place.com</a>. Official website at <a href=%22http://ps3xploit.com%22>http://ps3xploit.com</a></b>";
+
+// Checkboxes First Section
+var gui_chk_default_settings="Default Settings:";
+var gui_chk_disable_trigger="Disable Trigger:";
+var gui_chk_write_protect="Write Protect:";
+var gui_chk_flash_type_nand="NAND:";
+var gui_chk_flash_type_nor=" &nbsp NOR:";
+var gui_chk_flash_type_emmc=" &nbsp eMMC:";
+
+// Reboot Mode
+var gui_chk_reboot_mode="Reboot Mode:";
+var gui_chk_reboot_mode_select="* Select Mode *";
+var gui_chk_reboot_mode_soft="Soft Reboot";
+var gui_chk_reboot_mode_hard="Hard Reboot";
+var gui_chk_reboot_mode_off="Power Down";
+
+// ROP Chain Text
+//
+
+// Preset Chains
+var gui_txt_preset_chains="Preset Chains: ";
+var gui_txt_preset_chains_default="Default/Testing";
+var gui_txt_option_stackframe_test="Stackframe Test";
+var gui_txt_option_beep_test="Beep Test";
+var gui_txt_option_power_test="Power Test";
+var gui_txt_option_minver_check="Minimum Version Check";
+var gui_txt_option_sys_game_get_temperature="Show CELL/RSX Temps";
+var gui_txt_option_console_write_test="Console Write Test";
+var gui_txt_option_sys_tty_read="TTY Read Test";
+var gui_txt_option_sys_tty_write="TTY Write Test";
+
+// Dumping
+var gui_txt_preset_chains_dumping="Dumping";
+var gui_txt_option_system_info_multi_dump="System Info Multi Dump";
+var gui_txt_option_dump_lv2_syscall_table="Dump LV2 Syscall Table";
+var gui_txt_option_mem_dump_test="Dump Raw VSH Memory";
+var gui_txt_option_get_open_psid="Dump PSID";
+var gui_txt_option_dump_idps_from_mem="Dump IDPS From VSH";
+var gui_txt_option_sys_net_dump="SysNet Dump";
+var gui_txt_option_dump_idps_from_flash="Dump IDPS From Flash";
+
+// File System
+var gui_txt_preset_chains_file_system="File System";
+var gui_txt_option_db_rebuild="Database Rebuild";
+var gui_txt_option_file_read_write_test="Read/Write File Test";
+var gui_txt_option_dir_read_write_test="Read/Write Directory Test";
+
+// Fun
+var gui_txt_preset_chains_fun="Fun";
+var gui_txt_option_fun_test="Beep Test";
+
+// Other Syscall Chains
+//
+
+// Memory/Syatem
+var gui_txt_syscall_group_mem_sys="Memory/System: ";
+var gui_txt_syscall_chains_mem_sys="Memory";
+var gui_txt_option_sys_rsx_memory_free="sys_rsx_memory_free";
+
+// Storage
+var gui_txt_syscall_chains_storage="Storage";
+var gui_txt_option_sys_storage_report_devices="sys_storage_report_devices";
+var gui_txt_option_sys_storage_open="sys_storage_open";
+var gui_txt_option_sys_storage_read="sys_storage_read";
+var gui_txt_option_sys_fs_chmod="sys_fs_chmod";
+var gui_txt_option_sys_fs_chown="sys_fs_chown";
+var gui_txt_option_sys_fs_get_fs_info="sys_fs_get_fs_info";
+var gui_txt_option_sys_fs_get_mount_info="sys_fs_get_mount_info";
+var gui_txt_option_sys_fs_link="sys_fs_link";
+var gui_txt_option_sys_fs_mapped_allocate="sys_fs_mapped_allocate";
+var gui_txt_option_sys_fs_mapped_free="sys_fs_mapped_free";
+var gui_txt_option_sys_fs_mkdir="sys_fs_mkdir";
+var gui_txt_option_sys_fs_mount="sys_fs_mount";
+var gui_txt_option_sys_fs_rename="sys_fs_rename";
+var gui_txt_option_sys_fs_rmdir="sys_fs_rmdir";
+var gui_txt_option_sys_fs_stat="sys_fs_stat";
+var gui_txt_option_sys_fs_symbolic_link="sys_fs_symbolic_link";
+var gui_txt_option_sys_fs_unlink="sys_fs_unlink";
+var gui_txt_option_sys_fs_unmount="sys_fs_unmount";
+
+// System
+var gui_txt_syscall_chains_system="System";
+var gui_txt_option_sys_ss_utoken_if="sys_ss_utoken_if";
+
+// Process/Thread
+//
+
+// Process
+var gui_txt_syscall_group_proc_thread="Process/Thread: ";
+var gui_txt_syscall_chains_proc_thread="Process";
+var gui_txt_option_sys_process_exit="sys_process_exit";
+var gui_txt_option_sys_process_kill="sys_process_kill";
+
+var gui_txt_syscall_chains_process="Proc ID";
+
+// Threads
+var gui_txt_syscall_chains_threads="Threads";
+var gui_txt_option_ppu_thread_get_priority="thread_get_priority";
+var gui_txt_option_ppu_thread_get_stack_info="thread_get_stack_info";
+var gui_txt_option_sys_ppu_thread_create="sys_ppu_thread_create";
+var gui_txt_option_sys_ppu_thread_exit="sys_ppu_thread_exit";
+var gui_txt_option_sys_ppu_thread_restart="sys_ppu_thread_restart";
+var gui_txt_option_sys_ppu_thread_start="sys_ppu_thread_start";
+var gui_txt_option_sys_ppu_thread_stop="sys_ppu_thread_stop";
+
+// Thread ID
+var gui_txt_syscall_chains_thread_id="Thread ID";
+
+
+// Netowrk
+var gui_txt_syscall_group_network="Network: ";
+var gui_txt_syscall_chains_sys_net="sys_net";
+var gui_txt_option_sys_net_open_dump="sys_net_open_dump";
+var gui_txt_option_sys_net_read_dump="sys_net_read_dump";
+var gui_txt_option_sys_net_write_dump="sys_net_write_dump";
+var gui_txt_option_sys_net_close_dump="sys_net_close_dump";
+
+var gui_txt_option_url="URL: ";
+
+
+// Debugging
+var gui_txt_syscall_group_debugging="Debugging: ";
+var gui_txt_syscall_chains_debug_sc="System Calls";
+var gui_txt_option_debug_placeholder="beep_test";
+
+
+// LED Control
+var gui_txt_syscall_group_led="LED Control:";
+var gui_txt_syscall_chains_led="* Select Chain *";
+var gui_txt_option_sys_sm_request_led="sys_sm_request_led";
+var gui_txt_option_sys_sm_control_led="sys_sm_control_led";
+
+var gui_txt_syscall_chains_led_color="Change Color";
+var gui_txt_option_led_color_green="Green";
+var gui_txt_option_led_color_yellow_red="Yellow/Red";
+var gui_txt_option_led_color_off="Off";
+
+var gui_txt_syscall_chains_led_action="Change Action";
+var gui_txt_option_led_action_on="On";
+var gui_txt_option_led_action_off="Off";
+var gui_txt_option_led_action_blink_fast="Blink Fast";
+var gui_txt_option_led_action_blink_slow="Blink Slow";
+
+
+// Beep Parameters
+var gui_txt_syscall_group_beep_params="Beep Parameters: ";
+var gui_txt_syscall_chains_beeps="# of Beeps";
+var gui_txt_option_beep_off="Turn Off";
+var gui_txt_option_beep_3="3 Beeps";
+var gui_txt_option_beep_2="2 Beeps";
+var gui_txt_option_beep_2f="2 Beeps Fast";
+var gui_txt_option_beep_1="1 Beep";
+var gui_txt_option_beep_1f="1 Beep Fast";
+var gui_txt_option_beep_flatline="Flatline";
+
+
+// Memory Dump
+var gui_txt_syscall_group_memdump="Memory Dump:";
+var gui_txt_memdump_addresses="MemDump Address";
+var gui_txt_memdump_size="MemDump Size";
+var gui_txt_memdump_range_presets="Presets:";
+var gui_txt_option_memdump_presets_default="* No Preset Selected *";
+
+var gui_txt_memdump_address_start="Start:";
+var gui_txt_memdump_address_end="End:";
+var gui_txt_btn_memdump_set_values="Set New Values";
+
+
+var gui_txt_group_user_id="User ID:";
+var gui_txt_option_user_id_default="* Default *";
+
+
+var gui_txt_group_permissions="Permissions:";
+var gui_txt_option_chmod="chmod";
+var gui_txt_option_chown="chown";
+
+var gui_txt_group_filesize="File Size 0x:";
+var gui_txt_group_titleid="TitleID:";
+
+var gui_txt_btn_set_filesize="Set";
+var gui_txt_btn_set_titleid="Set";
+
+var gui_txt_group_path_source="Source:";
+var gui_txt_group_path_destination="Destination: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp";
+
+// XMB Transfer
+var gui_txt_syscall_group_xmb_transfer="XMB Transfer Option ";
+var gui_txt_option_xmb_photo="Photo";
+var gui_txt_option_xmb_music="Music";
+var gui_txt_option_xmb_video="Video";
+var gui_txt_option_xmb_jpg_btn="Press &#x25B3 For JPG";
+var gui_txt_option_xmb_mp3_btn="Press &#x25B3 For MP3";
+var gui_txt_option_xmb_mp4_btn="Press &#x25B3 For MP4";
+var gui_txt_option_xmb_save_msg="&#x2192 File &#x2192 Save Target &#x2192 System Storage";
+
+var gui_txt_group_payload_type="Payload Type ";
+var gui_txt_group_payload_type_help="<b><i>Replace default payloads with your own files, using the same names, and place in TEMPLATE/payloads/ folder under HTML source</b></i>";
+
+
+// String Search
+var gui_txt_group_string_search="Search:";
+var gui_txt_option_search_size="Size";
+var gui_txt_option_search_base="Base";
+var gui_txt_option_search_stack="Stack";
+var gui_txt_option_search_range="Range";
+var gui_txt_option_search_loops="Loops";
+
+var gui_chk_search_verify_jumps="Verify Jumps:";
+var gui_chk_search_verify_stackframe="Stackframe:";
+var gui_chk_search_debug_output="Debug:";
+
+var gui_txt_search_found_offsets="<b>Found Offsets: base_fp: 0x0 | stack_frame_addr: 0x0 | jump_2_addr: 0x0 | jump_1_addr: 0x0</b>";
+
+// Buttons
+var gui_txt_option_init_rop_btn="Initialize ROP Chain";
+var gui_txt_option_exec_rop_btn="Execute Chain";
+var gui_txt_option_reload_page_btn="Reload Page";
+var gui_txt_option_reset_btn="Reset Options";
+var gui_txt_option_load_settings_btn="Load Settings";
+var gui_txt_option_save_settings_btn="Save Settings";
+var gui_txt_option_debug_show_var_btn="Show All Variables";

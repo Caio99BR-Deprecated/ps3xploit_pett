@@ -1,0 +1,714 @@
+<!-- PS3 ROP Chain Template -->
+<!-- PS3Xploit Team 2018 / ps3xploit.com -->
+
+<!-- Translation by: @neno20115 -->
+
+<!DOCTYPE HTML>
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>PS3Xploit Tutorial Template -[ ps3xploit.com ]-</title>
+
+<!-- Load These 1st -->
+<script src="js/api/init.js"></script>
+<script src="js/api/lang/it_it/messages.js"></script><!-- Italian -->
+
+<!-- Load These Variables Next -->
+<script src="js/api/utilities.js"></script>
+<script src="js/chains/registers.js"></script>
+<script src="js/chains/offsets.js"></script>
+<script src="js/api/padding.js"></script>
+<script src="js/api/defaults.js"></script>
+
+<!-- Load Other Variables and Functions -->
+<!-- <script src="js/api/opcodes.js"></script> -->
+<script src="js/api/paths.js"></script>
+<script src="js/api/search.js"></script>
+<script src="js/api/syscalls.js"></script>
+
+<script src="js/chains/stackframe.js"></script>
+<script src="js/chains/loader.js"></script>
+
+<!-- Load Exploit JS After All Other and Before Chains -->
+<script src="js/exploit.js"></script>
+
+<!-- GUI Load Last -->
+<!-- <script src="js/api/gui.js"></script> -->
+<link rel="stylesheet" href="css/gui.css">
+</head>
+	<body id="BodyID" class="bg" onload="setDefaults();">
+		<div id="HeaderID">
+		<h1 class="orange">PS3 Exploitation Tutorial Template <span class="white_small">v0.0.9 </span><span class="pink_small"> 
+		<!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp * EXPERIMENTAL RELEASE * -->
+		</span></h1>
+		
+		<h4 class="white">by PS3Xploit Team: </h2><b><span class="red">W</span><span class="white"> | </span><span class="red">esc0rtd3w</span><span class="white"> | </span><span class="red">habib</span><span class="white"> | </span><span class="red">bguerville</span></b> 
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<b><span class="green_small" id="fwVerText"></span></b></h4>
+		<hr>
+		<span class="teal_smaller">Molte grazie a xerpi per il suo port su PS3 dell'exploit che utilizza il leak di memoria nei processi utente, zecoxao e Joonie per il loro inaspettato e continuo supporto, mysis per la documentazione sull'esportazione VHS e plugin, ai membri che hanno contribuito su psdevwiki, STLcardsWS per il suo longevo contributo e tutta la comunità di  hackere/sviluppatori su ps3  passati e presenti, tu sai chi sei! Mille grazie a littlebalup per l'idea e la corelata implementazione js che abbiamo usato per rilasciare la versione HDD dei DUMPER e FLASHER. Grazie anche a B7U3 C50SS, Endless, e 0x1991337 per i tutorial su syscall testing e altri contributi! </span> <span class="white_smaller"><b>Maggiori info&news su <a href="http://www.psx-place.com">http://www.psx-place.com</a>. Official website <a href="http://ps3xploit.com">http://ps3xploit.com</a></span></b>
+		<hr>
+			
+		<b><span class="white">Impostazioni predefinite:</span></b><input type="checkbox" id="default_settings" name="default_settings" onclick="toggle_default_settings();" checked />
+		&nbsp|&nbsp
+		
+		<b><span class="white">Disabilita Trigger:</span></b><input type="checkbox" id="disable_trigger" name="disable_trigger" onclick="toggleTrigger();"/>
+		&nbsp|&nbsp 
+		
+		<b><span class="white">NAND:</span></b><input type="checkbox" id="flash_type_nand" name="flash_type_nand" onclick="setFlashType(0);"/><b><span class="white"> &nbsp NOR:</span></b><input type="checkbox" id="flash_type_nor" name="flash_type_nor" onclick="setFlashType(1);" checked /><b><span class="white"> &nbsp eMMC:</span></b><input type="checkbox" id="flash_type_emmc" name="flash_type_emmc" onclick="setFlashType(2);"/> &nbsp <span class="white">|</span> &nbsp
+			
+		<b><span class="white">Proteggi Scrittura:</font></b><input type="checkbox" id="write_protection_toggle" name="write_protection_toggle" onclick="toggleWriteProtect();" checked /> &nbsp <span class="white">|</span> &nbsp
+		
+		<b><span class="white">Modalita' Riavvio:</span></b> 
+		<select name="marked_reboot" id="marked_reboot" onchange="rebootSelection(this);">
+		<option value="">* Seleziona Modalita' *</option>
+		<option value="reboot_shutdown_soft">Riavvio Soft</option>
+		<option value="reboot_shutdown_hard">Riavvio Hard</option>
+		<option value="reboot_shutdown_off">Spegni</option>
+		</select> <!-- &nbsp <span class="white">|</span> &nbsp -->
+		
+		<!--<div class="spoiler">
+		<input type="button" onclick="showSpoiler(this);" value="Show Models and Flash Info" />
+		<div class="inner" style="display:none;"><p align="left">
+		<font color="#CC2010">
+		<h3>NAND Flash memory:</h3><font color="#000000">Phat Models Axx/Bxx/Cxx/Exx/Fxx/Gxx</font>
+		<h3>NOR Flash memory:</h3><font color="#000000">Phat Models Hxx/Jxx/Kxx/Lxx/Mxx/Pxx/Qxx ### Slim Models 2xxx/3xxx ### SuperSlim Models 4xxx [Excluding 40xxA/42xxA/43xxA]</font>
+		<h3>emmc Flash memory:</h3><font color="#000000">SuperSlim Models 40xxA/42xxA/43xxA	</font>
+		</font>
+		</p></div></div> -->
+		</div>
+		
+		<hr>
+		
+		<div id="rop_setup">
+		
+		<!-- Stack Frame Hex -->
+		<div id="chain_stackframe">
+		<!-- <h2 class="white"><u>Setup ROP Chain</u></h2> -->
+			<b><span class="white">Preset Chains: </span></b> 
+			<select name="marked_hex" id="marked_hex" onchange="chainSelection(this);" autofocus >
+			<option value="" selected>Predefinito/Testing</option>
+			<!-- <option value="stackframe_test">Test Stackframe</option> -->
+			<option value="beep_test">Beep Test</option>
+			<option value="power_test">Power Test</option>
+			<option value="minver_check">Controllo versione minima</option>
+			<option value="sys_game_get_temperature">Mostra CELL/RSX Temps</option>
+			<!-- <option value="console_write_test">console_write_test</option> -->
+			<!-- <option value="sys_tty_read">sys_tty_read</option> -->
+			<!-- <option value="sys_tty_write">sys_tty_write</option> -->
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<select name="marked_hex_dump" id="marked_hex_dump" onchange="chainSelection(this);" autofocus >
+			<option value="" selected>Dumping</option>
+			<option value="system_info_multi_dump">System Info Multi Dump</option>
+			<option value="dump_lv2_syscall_table">Dump LV2 Syscall Table</option>
+			<option value="mem_dump_test">Dump Raw VSH Memory</option>
+			<option value="get_open_psid">Dump PSID</option>
+			<option value="dump_idps_from_mem">Dump IDPS da VSH</option>
+			<option value="sys_net_dump">Dump SysNet</option>
+			<!-- <option value="dump_idps_from_flash">Dump IDPS From Flash</option> -->
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<select name="marked_hex_file_system" id="marked_hex_file_system" onchange="chainSelection(this);" autofocus >
+			<option value="" selected>File System</option>
+			<option value="db_rebuild">Ricostruisci Database</option>
+			<option value="file_read_write_test">Test Lettura/Scrittura File</option>
+			<option value="dir_read_write_test">Test Lettura/Scrittura Directory</option>
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<select name="marked_hex_fun" id="marked_hex_fun" onchange="chainSelection(this);" >
+			<option value="" selected>Fun</option>
+			<option value="beep_test">Beep Test</option>
+			</select> <!-- &nbsp <span class="white">|</span> &nbsp -->
+			
+			<!--
+			<select name="marked_hex_debugging" id="marked_hex_debugging" onchange="chainSelection(this);" >
+			<option value="" selected>Debugging</option>
+			<option value="beep_test">---------------------</option>
+			</select> &nbsp|&nbsp -->
+			
+			<br>
+			
+			<b><span class="white">Memory/System: </span></b> 
+			<select name="marked_hex_memory" id="marked_hex_memory" onchange="chainSelection(this);" >
+			<option value="" selected>Memory</option>
+			<option value="sys_rsx_memory_free">sys_rsx_memory_free</option>
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<select name="marked_hex_storage" id="marked_hex_storage" onchange="chainSelection(this);" >
+			<option value="" selected>Storage</option>
+			<option value="sys_storage_report_devices">sys_storage_report_devices</option>
+			<!-- <option value="sys_storage_open">sys_storage_open</option> -->
+			<!-- <option value="sys_storage_read">sys_storage_read</option> -->
+			<option value="sys_fs_chmod">sys_fs_chmod</option>
+			<option value="sys_fs_chown">sys_fs_chown</option>
+			<option value="sys_fs_get_fs_info">sys_fs_get_fs_info</option>
+			<option value="sys_fs_get_mount_info">sys_fs_get_mount_info</option>
+			<option value="sys_fs_link">sys_fs_link</option>
+			<option value="sys_fs_mapped_allocate">sys_fs_mapped_allocate</option>
+			<option value="sys_fs_mapped_free">sys_fs_mapped_free</option>
+			<option value="sys_fs_mkdir">sys_fs_mkdir</option>
+			<option value="sys_fs_mount">sys_fs_mount</option>
+			<option value="sys_fs_rename">sys_fs_rename</option>
+			<option value="sys_fs_rmdir">sys_fs_rmdir</option>
+			<option value="sys_fs_stat">sys_fs_stat</option>
+			<option value="sys_fs_symbolic_link">sys_fs_symbolic_link</option>
+			<option value="sys_fs_unlink">sys_fs_unlink</option>
+			<option value="sys_fs_unmount">sys_fs_unmount</option>
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<select name="marked_hex_system" id="marked_hex_system" onchange="chainSelection(this);">
+			<option value="" selected>System</option>
+			<option value="sys_game_get_temperature">sys_game_get_temperature</option>
+			<option value="sys_ss_utoken_if">sys_ss_utoken_if</option>
+			</select> 
+			
+			<br>
+			
+			<b><span class="white">Processi/Thread: </span></b> 
+			<select name="marked_hex_process" id="marked_hex_process" onchange="chainSelection(this);" >
+			<option value="" selected>Processo</option>
+			<option value="sys_process_exit">sys_process_exit</option>
+			<option value="sys_process_kill">sys_process_kill</option>
+			</select> 
+			
+			<select name="marked_hex_process_id" id="marked_hex_process_id" onchange="getProcessID(this);">
+			<option value="" selected>Proc ID</option>
+			<option value="16777984">0x01000300 VSH</option>
+			</select> 
+			
+			<select name="marked_hex_threads" id="marked_hex_threads" onchange="chainSelection(this);" >
+			<option value="" selected>Thread</option>
+			<option value="ppu_thread_get_priority">thread_get_priority</option>
+			<option value="ppu_thread_get_stack_info">thread_get_stack_info</option>
+			<option value="sys_ppu_thread_create">sys_ppu_thread_create</option>
+			<option value="sys_ppu_thread_exit">sys_ppu_thread_exit</option>
+			<option value="sys_ppu_thread_restart">sys_ppu_thread_restart</option>
+			<option value="sys_ppu_thread_start">sys_ppu_thread_start</option>
+			<option value="sys_ppu_thread_stop">sys_ppu_thread_stop</option>
+			</select> 
+			
+			<select name="marked_hex_threads_id" id="marked_hex_threads_id" onchange="getThreadID(this);">
+			<option value="" selected>Thread ID</option>
+			<option value="16777258">0x0100002A main_vsh.self</option>
+			<option value="16777259">0x0100002B SceVshDACom</option>
+			<option value="16777260">0x0100002C SceNetCtl</option>
+			<option value="16777261">0x0100002D SceNetDhcp</option>
+			<option value="16908452">0x010200A4 load_resourc</option>
+			<option value="16908453">0x010200A5 wait_to_go</option>
+			<option value="16908455">0x010200A7 Silk UI</option>
+			<option value="16908457">0x010200A9 Silk URI http</option>
+			<option value="16908458">0x010200AA Silk URI http</option>
+			<option value="16908459">0x010200AB Silk HTML </option>
+			</select>
+			
+			<br>
+			
+			<b><span class="white">Rete: </span></b> 
+			<select name="marked_hex_network" id="marked_hex_network" onchange="chainSelection(this);" >
+			<option value="" selected>sys_net</option>
+			<option value="sys_net_open_dump">sys_net_open_dump</option>
+			<option value="sys_net_read_dump">sys_net_read_dump</option>
+			<option value="sys_net_write_dump">sys_net_write_dump</option>
+			<option value="sys_net_close_dump">sys_net_close_dump</option>
+			</select> <!-- &nbsp <span class="white">|</span> &nbsp -->
+			
+			<b><span class="white">URL: </span></b> 
+			<textarea id="network_url_edit" name="network_url_edit" cols="24" rows="1"></textarea> 
+			&nbsp <span class="white">|</span> &nbsp
+			
+			<br>
+			
+			<b><span class="white">Debugging: </span></b> 
+			<select name="marked_hex_debugging" id="marked_hex_debugging" onchange="chainSelection(this);" >
+			<option value="" selected>System Calls</option>
+			<option value="beep_test">beep_test</option>
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<hr>
+			
+			<!-- <b><font color="#000000">LED/Fan Control:</font></b>  -->
+			<b><span class="white">Controllo LED:</span></b> 
+			<select name="marked_hex_system_led" id="marked_hex_system_led" onchange="chainSelection(this);">
+			<option value="" selected>* Seleziona Chain *</option>
+			<option value="sys_sm_request_led">sys_sm_request_led</option>
+			<option value="sys_sm_control_led">sys_sm_control_led</option>
+			<!-- <option value="sys_sm_get_fan_policy">sys_sm_get_fan_policy</option> -->
+			<!-- <option value="sys_sm_set_fan_policy">sys_sm_set_fan_policy</option> -->
+			</select> 
+			
+			<select name="marked_hex_system_led_color" id="marked_hex_system_led_color" onchange="getLedColor(this);">
+			<option value="" selected>Cambia Colore</option>
+			<option value="1">Verde</option>
+			<option value="2">Giallo/Rosso</option>
+			<option value="0">Off</option>
+			</select> 
+			
+			<select name="marked_hex_system_led_action" id="marked_hex_system_led_action" onchange="getLedAction(this);">
+			<option value="" selected>Cambia Azione</option>
+			<option value="1">On</option>
+			<option value="0">Off</option>
+			<option value="2">Lampeggia veloce</option>
+			<option value="3">Lampeggia lento</option>
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<b><span class="white">Parammetri Beep: </span></b> 
+			<select name="number_of_beeps_edit" id="number_of_beeps_edit" onchange="setNumberOfBeeps(this);" autofocus >
+			<option value="438" selected># di Beep</option>
+			<option value="0">Turn Off</option>
+			<option value="438">3 Beep</option>
+			<option value="432">2 Beep</option>
+			<option value="176">2 Beep Veloce</option>
+			<option value="496">1 Beep</option>
+			<option value="256">1 Beep Veloce</option>
+			<option value="4095">Continuo</option>
+			</select> <!-- &nbsp <span class="white">|</span> &nbsp -->
+			
+			<!--
+			<select name="marked_hex_system_fan_speed" id="marked_hex_system_fan_speed" onchange="getFanSpeed(this);">
+			<option value="" selected>Fan Speed</option>
+			<option value="FF">30%</option>
+			<option value="FF">40%</option>
+			<option value="FF">50%</option>
+			<option value="FF">60%</option>
+			<option value="FF">70%</option>
+			<option value="FF">80%</option>
+			<option value="FF">90%</option>
+			<option value="FF">99%</option>
+			</select> 
+			
+			<select name="marked_hex_system_fan_settings" id="marked_hex_system_fan_settings" onchange="getFanSettings(this);">
+			<option value="" selected>Fan Settings</option>
+			<option value="beep_test">---------------------</option>
+			</select> --> 
+			
+		</div>
+		
+		<hr>
+		
+		<div id="file_path_selections">
+		
+			<b><span class="white">Dump Memoria:</span></b>
+			<select name="marked_memdump_addr" id="marked_memdump_addr" onchange="setMemDumpAddress(this);">
+			<option value="2147483648">Indirizzo MemDump</option>
+			<option value="0">0x00000000</option>
+			<option value="65536">0x00010000</option>
+			<!-- <option value="7340032">0x00700000</option> -->
+			<!-- <option value="7494584">0x00725BB8</option> --> <!-- IDPS Offset 4.66 CEX -->
+			<!-- <option value="7493128">0x00725608</option> --> <!-- IDPS Offset 4.81 CEX -->
+			<!-- <option value="7561112">0x00735F98</option> --> <!-- IDPS Offset 4.81 DEX -->
+			<option value="268435456">0x10000000</option>
+			<option value="536870912">0x20000000</option>
+			<option value="805306368">0x30000000</option>
+			<option value="1073741824">0x40000000</option>
+			<option value="1342177280">0x50000000</option>
+			<option value="1610612736">0x60000000</option>
+			<option value="1879048192">0x70000000</option>
+			<option value="2147483648">* 0x80000000 *</option>
+			<option value="2415919104">0x90000000</option>
+			<option value="2684354560">0xA0000000</option>
+			<option value="2952790016">0xB0000000</option>
+			<option value="3221225472">0xC0000000</option>
+			<option value="3489660928">0xD0000000</option>
+			<option value="3758096384">0xE0000000</option>
+			<option value="4026531840">0xF0000000</option>
+			</select> &nbsp
+			
+			<select name="marked_memdump_size" id="marked_memdump_size" onchange="setMemDumpSize(this);">
+			<option value="268435456">Dimensione MemDump</option>
+			<option value="16">0x00000010</option>
+			<option value="32">0x00000020</option>
+			<option value="64">0x00000040</option>
+			<option value="128">0x00000080</option>
+			<option value="256">0x00000100</option>
+			<option value="512">0x00000200</option>
+			<option value="1024">0x00000400</option>
+			<option value="2048">0x00000800</option>
+			<option value="4094">0x00000FFE</option>
+			<option value="4096">0x00001000</option>
+			<option value="8192">0x00002000</option>
+			<option value="16384">0x00004000</option>
+			<option value="32768">0x00008000</option>
+			<option value="65519">0x0000FFEF</option>
+			<option value="65536">0x00010000</option>
+			<option value="131072">0x00020000</option>
+			<option value="262144">0x00040000</option>
+			<option value="524288">0x00080000</option>
+			<option value="655344">0x0009FFF0</option>
+			<option value="655359">0x0009FFFF</option>
+			<option value="1048560">0x000FFFF0</option>
+			<option value="1048576">0x00100000</option>
+			<option value="1114096">0x0010FFF0</option>
+			<option value="2097152">0x00200000</option>
+			<option value="262118">0x0003FFE6</option>
+			<option value="3407870">0x0033FFFE</option>
+			<option value="4194304">0x00400000</option>
+			<option value="8388608">0x00800000</option>
+			<option value="10485744">0x009FFFF0</option>
+			<option value="10485759">0x009FFFFF</option>
+			<option value="11468800">0x00AF0000</option>
+			<option value="16777216">0x01000000</option>
+			<option value="27656180">0x01A5FFF4</option>
+			<option value="28770231">0x01B6FFB7</option>
+			<option value="29294579">0x01BEFFF3</option>
+			<option value="29360115">0x01BFFFF3</option>
+			<option value="33554431">0x01FFFFFF</option>
+			<option value="33554432">0x02000000</option>
+			<option value="67108864">0x04000000</option>
+			<option value="134217728">0x08000000</option>
+			<option value="167772144">0x09FFFFF0</option>
+			<option value="266338281">0x0FDFFFE9</option>
+			<option value="268435455">* 0x0FFFFFFF *</option>
+			<option value="268435456">0x10000000</option>
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<!--
+			<b><font color="#000000">Presets:</font></b>
+			<select name="marked_memdump_range" id="marked_memdump_range" onchange="setMemDumpRange(this);">
+			<option value="">* No Preset Selected *</option>
+			<option value="0">0x00010000-0x01BFFFF3</option>
+			<option value="1">0x10000000-0x1010FFF0</option>
+			<option value="2">0x20000000-0x209FFFFF</option>
+			<option value="3">0x30000000-0x3003FFE6</option>
+			<option value="4">0x40000000-0x4000FFEF</option>
+			<option value="5">0x50000000-0x5000FFEF</option>
+			<option value="6">0x60000000-0x60000FFE</option>
+			<option value="7">0x70000000-0x71FFFFFF</option>
+			<option value="8">0x80000000-0x8FFFFFFF</option>
+			<option value="C">0xC0000000-0xCFDFFFE9</option>
+			</select> 
+			
+			<br>-->
+			
+			<b><span class="white">Inizio:</span></b>
+			<textarea id="marked_memdump_addr_edit" name="marked_memdump_addr_edit" cols="9" rows="1"></textarea> &nbsp
+			<b><span class="white">Fine:</span></b>
+			<textarea id="marked_memdump_size_edit" name="marked_memdump_size_edit" cols="9" rows="1"></textarea> &nbsp
+			<button id="memdump_save_new_values" onclick="saveMemdumpValues();">Imposta nuovi valori</button>
+			<!--&nbsp&nbsp|&nbsp&nbsp-->
+			
+			<hr>
+			
+		<!-- <h3><u>File and Path Arguments</u></h3> -->
+			<b><span class="white">ID Utente:</span></b>
+			<select name="marked_user_id" id="marked_user_id" onchange="setUserID(this);">
+			<option value="">* Predefinito *</option>
+			<option value="00000001">00000001</option>
+			<option value="00000002">00000002</option>
+			<option value="00000003">00000003</option>
+			<option value="00000004">00000004</option>
+			<option value="00000005">00000005</option>
+			<option value="00000006">00000006</option>
+			<option value="00000007">00000007</option>
+			<option value="00000008">00000008</option>
+			<option value="00000009">00000009</option>
+			<option value="00000010">00000010</option>
+			<option value="00000011">00000011</option>
+			<option value="00000012">00000012</option>
+			<option value="00000013">00000013</option>
+			<option value="00000014">00000014</option>
+			<option value="00000015">00000015</option>
+			<option value="00000016">00000016</option>
+			<option value="00000017">00000017</option>
+			<option value="00000018">00000018</option>
+			<option value="00000019">00000019</option>
+			<option value="00000020">00000020</option>
+			<option value="00000021">00000021</option>
+			<option value="00000022">00000022</option>
+			<option value="00000023">00000023</option>
+			<option value="00000024">00000024</option>
+			<option value="00000025">00000025</option>
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<b><span class="white">Permessi:</span></b>
+			<select name="marked_chmod" id="marked_chmod" onchange="chmodSet(this);" disabled>
+			<option value="">chmod</option>
+			<!-- <option value="0x00000FC0">666</option> -->
+			<option value="0x00000FC0">700</option>
+			<option value="0x00000FC1">701</option>
+			<option value="0x00000FED">755</option>
+			<option value="0x00000FFF">* 777 *</option>
+			</select> 
+			
+			<select name="marked_chown" id="marked_chown" onchange="chownSet(this);" disabled>
+			<option value="">chown</option>
+			<option value="0x00000000">* 0 *</option>
+			<option value="0x0000270F">9999</option>
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<b><span class="white">Dimensione File:</span></b>
+			<textarea id="file_size_edit" name="file_size_edit" cols="10" rows="1">140</textarea>
+			<button id="btn_file_size_edit" onclick="setFileSize();">Imposta nuova dimensione</button> &nbsp <span class="white">|</span> &nbsp
+			
+			<b><span class="white">TitleID:</span></b>
+			<textarea id="title_id_edit" name="title_id_edit" cols="8" rows="1">PS3XPLOIT</textarea>
+			<button id="btn_title_id_edit" onclick="setTitleID();">Set</button>
+			
+			<br><br>
+			
+			<!-- <b><font color="#000000">Source: &nbsp&nbsp&nbsp&nbsp&nbsp </font></b> -->
+			<select name="path_src_type" id="path_src_type" onchange="setPathNameSrc(this);">
+			<option value="">Sorgente:</option>
+			<option value="/dev_hdd0/PS3Xploit/hello.txt">/dev_hdd0/PS3Xploit/hello.txt</option>
+			<option value="/dev_usb000/PS3Xploit/hello.txt">/dev_usb000/PS3Xploit/hello.txt</option>
+			<option value="/dev_hdd0/">/dev_hdd0/</option>
+			<option value="/dev_hdd1/">/dev_hdd1/</option>
+			<option value="/dev_hdd2/">/dev_hdd2/</option>
+			<option value="/dev_flash/">/dev_flash/</option>
+			<option value="/dev_flash2/">/dev_flash2/</option>
+			<option value="/dev_flash3/">/dev_flash3/</option>
+			<option value="httpcache">httpcache</option>
+			<option value="/dev_bdvd/PS3_GAME/USRDIR/">/dev_bdvd/PS3_GAME/USRDIR/</option>
+			<option value="/dev_bdvd/PS3_GAME/USRDIR/EBOOT.BIN">/dev_bdvd/PS3_GAME/USRDIR/EBOOT.BIN</option>
+			<option value="/dev_hdd0/crash_report/">/dev_hdd0/crash_report/</option>
+			<option value="/dev_hdd0/data/">/dev_hdd0/data/</option>
+			<option value="/dev_hdd0/drm/">/dev_hdd0/drm/</option>
+			<option value="/dev_hdd0/game/">/dev_hdd0/game/</option>
+			<option value="/dev_hdd0/game_debug/">/dev_hdd0/game_debug/</option>
+			<option value="/dev_hdd0/home/">/dev_hdd0/home/</option>
+			<option value="/dev_hdd0/mms/">/dev_hdd0/mms/</option>
+			<option value="/dev_hdd0/music/">/dev_hdd0/music/</option>
+			<option value="/dev_hdd0/packages/">/dev_hdd0/packages/</option>
+			<option value="/dev_hdd0/photo/">/dev_hdd0/photo/</option>
+			<option value="/dev_hdd0/tmp/">/dev_hdd0/tmp/</option>
+			<option value="/dev_hdd0/video/">/dev_hdd0/video/</option>
+			<option value="/dev_hdd0/vm/">/dev_hdd0/vm/</option>
+			<option value="/dev_hdd0/vsh/">/dev_hdd0/vsh/</option>
+			<option value="/dev_hdd0/xmlhost/">/dev_hdd0/xmlhost/</option>
+			<option value="/dev_hdd0/idps.bin">/dev_hdd0/idps.bin</option>
+			<option value="/dev_hdd0/psid.bin">/dev_hdd0/psid.bin</option>
+			<option value="/dev_hdd0/dump.bin">/dev_hdd0/dump.bin</option>
+			<option value="/dev_usb000/hdd0.bin">/dev_usb000/hdd0.bin</option>
+			<option value="/dev_usb000/hdd1.bin">/dev_usb000/hdd1.bin</option>
+			<option value="/dev_usb000/hdd2.bin">/dev_usb000/hdd2.bin</option>
+			<option value="/dev_usb000/flash.bin">/dev_usb000/flash.bin</option>
+			<option value="/dev_usb000/flash2.bin">/dev_usb000/flash2.bin</option>
+			<option value="/dev_usb000/flash3.bin">/dev_usb000/flash3.bin</option>
+			<option value="/dev_usb000/">/dev_usb000/</option>
+			<option value="/dev_usb000/idps.bin">/dev_usb000/idps.bin</option>
+			<option value="/dev_usb000/psid.bin">/dev_usb000/psid.bin</option>
+			<option value="/dev_usb000/dump.bin">/dev_usb000/dump.bin</option>
+			<option value="/dev_hdd0/drm/marlin/HID.dat">/dev_hdd0/drm/marlin/HID.dat</option>
+			<option value="/dev_hdd0/drm/marlin/SS_LC.dat">/dev_hdd0/drm/marlin/SS_LC.dat</option>
+			<option value="/dev_hdd0/drm/marlin/HID.dat">/dev_hdd0/drm/marlin/nphome/HID.dat</option>
+			<option value="/dev_hdd0/drm/marlin/SS_LC.dat">/dev_hdd0/drm/marlin/nphome/SS_LC.dat</option>
+			</select>
+			
+			<textarea id="path_src" name="path_src" cols="58" rows="1"></textarea>
+			<br>
+			<!-- <b><font color="#000000">Destination:</font></b> -->
+			<select name="path_dest_type" id="path_dest_type" onchange="setPathNameDest(this);">
+			<option value="">Destinazione: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </option>
+			<option value="/dev_hdd0/PS3Xploit/hello.txt">/dev_hdd0/PS3Xploit/hello.txt</option>
+			<option value="/dev_usb000/PS3Xploit/hello.txt">/dev_usb000/PS3Xploit/hello.txt</option>
+			<option value="/dev_hdd0/">/dev_hdd0/</option>
+			<option value="/dev_hdd1/">/dev_hdd1/</option>
+			<option value="/dev_hdd2/">/dev_hdd2/</option>
+			<option value="/dev_flash/">/dev_flash/</option>
+			<option value="/dev_flash2/">/dev_flash2/</option>
+			<option value="/dev_flash3/">/dev_flash3/</option>
+			<option value="httpcache">httpcache</option>
+			<option value="/dev_usb000/EBOOT.BIN">/dev_usb000/EBOOT.BIN</option>
+			<option value="/dev_hdd0/EBOOT.BIN">/dev_hdd0/EBOOT.BIN</option>
+			<option value="/dev_hdd0/crash_report/">/dev_hdd0/crash_report/</option>
+			<option value="/dev_hdd0/data/">/dev_hdd0/data/</option>
+			<option value="/dev_hdd0/drm/">/dev_hdd0/drm/</option>
+			<option value="/dev_hdd0/game/">/dev_hdd0/game/</option>
+			<option value="/dev_hdd0/game_debug/">/dev_hdd0/game_debug/</option>
+			<option value="/dev_hdd0/home/">/dev_hdd0/home/</option>
+			<option value="/dev_hdd0/mms/">/dev_hdd0/mms/</option>
+			<option value="/dev_hdd0/music/">/dev_hdd0/music/</option>
+			<option value="/dev_hdd0/packages/">/dev_hdd0/packages/</option>
+			<option value="/dev_hdd0/photo/">/dev_hdd0/photo/</option>
+			<option value="/dev_hdd0/tmp/">/dev_hdd0/tmp/</option>
+			<option value="/dev_hdd0/video/">/dev_hdd0/video/</option>
+			<option value="/dev_hdd0/vm/">/dev_hdd0/vm/</option>
+			<option value="/dev_hdd0/vsh/">/dev_hdd0/vsh/</option>
+			<option value="/dev_hdd0/xmlhost/">/dev_hdd0/xmlhost/</option>
+			<option value="/dev_hdd0/idps.bin">/dev_hdd0/idps.bin</option>
+			<option value="/dev_hdd0/psid.bin">/dev_hdd0/psid.bin</option>
+			<option value="/dev_hdd0/dump.bin">/dev_hdd0/dump.bin</option>
+			<option value="/dev_usb000/">/dev_usb000/</option>
+			<option value="/dev_usb000/idps.bin">/dev_usb000/idps.bin</option>
+			<option value="/dev_usb000/psid.bin">/dev_usb000/psid.bin</option>
+			<option value="/dev_usb000/dump.bin">/dev_usb000/dump.bin</option>
+			<option value="/dev_usb000/hdd0.bin">/dev_usb000/hdd0.bin</option>
+			<option value="/dev_usb000/hdd1.bin">/dev_usb000/hdd1.bin</option>
+			<option value="/dev_usb000/hdd2.bin">/dev_usb000/hdd2.bin</option>
+			<option value="/dev_usb000/flash.bin">/dev_usb000/flash.bin</option>
+			<option value="/dev_usb000/flash2.bin">/dev_usb000/flash2.bin</option>
+			<option value="/dev_usb000/flash3.bin">/dev_usb000/flash3.bin</option>
+			<option value="/dev_hdd0/drm/marlin/HID.dat">/dev_hdd0/drm/marlin/HID.dat</option>
+			<option value="/dev_hdd0/drm/marlin/SS_LC.dat">/dev_hdd0/drm/marlin/SS_LC.dat</option>
+			<option value="/dev_hdd0/drm/marlin/HID.dat">/dev_hdd0/drm/marlin/nphome/HID.dat</option>
+			<option value="/dev_hdd0/drm/marlin/SS_LC.dat">/dev_hdd0/drm/marlin/nphome/SS_LC.dat</option>
+			</select> 
+			<textarea id="path_dest" name="path_dest" cols="58" rows="1"></textarea> 
+			
+			<br><br>
+			
+			<select name="marked_xmb_select" id="marked_xmb_select" onchange="setPayloadMedia(this);">
+			<option value="" selected>Opzioni Trasferimento XMB</option>
+			<option value="photo">Foto</option>
+			<option value="music">Musica</option>
+			<option value="video">Video</option>
+			</select> &nbsp 
+			<!-- <input name="copy_payload_media_browse" id="copy_payload_media_browse" type="file"> --> &nbsp 
+			<a href="payloads/payload.jpg" target="_blank"><button id="copy_payload_media_photo" onclick="copyPayloadMedia();" disabled >Premi &#x25B3 per JPG</button></a>&nbsp&nbsp 
+			<a href="payloads/payload.mp3" target="_blank"><button id="copy_payload_media_music" onclick="copyPayloadMedia();" disabled >Premi &#x25B3 per MP3</button></a>&nbsp&nbsp 
+			<a href="payloads/payload.mp4" target="_blank"><button id="copy_payload_media_video" onclick="copyPayloadMedia();" disabled >Premi &#x25B3 per MP4</button></a>&nbsp&nbsp
+			<span class="white"><b><i>&#x2192 File &#x2192 Salva Target &#x2192 System Storage</b></i></span>
+			
+			<!--<select name="marked_xmb_select_alt" id="marked_xmb_select_alt" onchange="setPayloadMediaType(this);">
+			<option value="" selected>Payload Type </option>
+			<option value="avi">payload.avi</option>
+			<option value="bik">payload.bik</option>
+			<option value="bmp">payload.bmp</option>
+			<option value="gif">payload.gif</option>
+			<option value="jpg">payload.jpg</option>
+			<option value="mp3">payload.mp3</option>
+			<option value="mp4">payload.mp4</option>
+			<option value="mpg">payload.mpg</option>
+			<option value="png">payload.png</option>
+			<option value="tif">payload.tif</option>
+			</select> &nbsp -->
+			<!-- <br>
+			<b><i>Replace default payloads with your own files, using the same names, and place in TEMPLATE/payloads/ folder under HTML source &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp </b></i> -->
+		</div>
+		</div>
+		
+		<hr>
+		
+		<div id="search_setup">
+		<!-- <h3><u>Search and Execute</u></h3> -->
+		<div id="search_size">
+			<b><span class="white">Tweak Ricerca:</span></b>
+			<select name="marked_search_size" id="marked_search_size" onchange="searchSizeSelection(this);">
+			<option value="" selected >Dimensione</option>
+			<option value="4">4MB</option>
+			<option value="8">8MB</option>
+			<option value="12">12MB</option>
+			<option value="16">16MB</option>
+			<option value="24">24MB</option>
+			<option value="32">32MB</option>
+			<option value="36">36MB</option>
+			<option value="44">44MB</option>
+			<option value="48">48MB</option>
+			<option value="56">56MB</option>
+			<option value="60">60MB</option>
+			<option value="64">64MB</option>
+			<option value="70">70MB</option>
+			<option value="80">80MB</option>
+			<option value="90">90MB</option>
+			<option value="100">100MB</option>
+			<option value="110">110MB</option>
+			<option value="128">128MB</option>
+			</select> &nbsp
+			
+			<select name="marked_search_base_offset" id="marked_search_base_offset" onchange="searchBaseSelection(this);">
+			<option value="" selected >Base</option>
+			<option value="2148532224">0x80100000</option>
+			<option value="2148663296">0x80120000</option>
+			<option value="2148794368">0x80140000</option>
+			<option value="2148925440">0x80160000</option>
+			<option value="2149056512">0x80180000</option>
+			<option value="2149318656">0x801C0000</option>
+			<option value="2149580800">0x80200000</option>
+			<option value="2149711872">0x80220000</option>
+			<option value="2149842944">0x80240000</option>
+			<option value="2149974016">0x80260000</option>
+			<option value="2150105088">0x80280000</option>
+			<option value="2150629376">0x80300000</option>
+			<option value="2151677952">0x80400000</option>
+			<option value="2152726528">0x80500000</option>
+			<option value="2153775104">0x80600000</option>
+			<option value="2154823680">0x80700000</option>
+			<option value="2155872256">0x80800000</option>
+			<option value="2156920832">0x80900000</option>
+			<option value="2157969408">0x80A00000</option>
+			</select> &nbsp
+			
+			<select name="marked_search_stack_adjust" id="marked_search_stack_adjust" onchange="searchBaseSelection();">
+			<option value="" selected >Stack</option>
+			<option value="0">0x000000</option>
+			<option value="720896">0xB0000</option>
+			<option value="1048576">0x100000</option>
+			<option value="2097152">0x200000</option>
+			<option value="2162688">0x210000</option>
+			<option value="2228224">0x220000</option>
+			<option value="2293760">0x230000</option>
+			<option value="2424832">0x250000</option>
+			<option value="2490368">0x260000</option>
+			<option value="2555904">0x270000</option>
+			<option value="2621440">0x280000</option>
+			<option value="2686976">0x290000</option>
+			<option value="2752512">0x2A0000</option>
+			<option value="3145728">0x300000</option>
+			<option value="4194304">0x400000</option>
+			</select> &nbsp
+			
+			<select name="marked_search_range_size" id="marked_search_range_size" onchange="searchRangeSelection(this);">
+			<option value="" selected >Range</option>
+			<option value="4096">0x1000</option>
+			<option value="8192">0x2000</option>
+			<option value="16384">0x4000</option>
+			<option value="32768">0x8000</option>
+			<option value="65536">0x10000</option>
+			<option value="131072">0x20000</option>
+			<option value="262144">0x40000</option>
+			<option value="524288">0x80000</option>
+			<option value="1048576">0x100000</option>
+			<option value="2097152">0x200000</option>
+			<option value="3145728">0x300000</option>
+			<option value="4194304">0x400000</option>
+			</select> &nbsp
+			
+			<select name="marked_search_max_loops" id="marked_search_max_loops" onchange="searchMaxLoops(this);">
+			<option value="" selected >Loop</option>
+			<option value="4">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="10">10</option>
+			<option value="15">15</option>
+			<option value="20">20</option>
+			<option value="25">25</option>
+			<option value="50">50</option>
+			<option value="75">75</option>
+			<option value="100">100</option>
+			</select> &nbsp <span class="white">|</span> &nbsp
+			
+			<b><span class="white">Verify Jumps:</span></b><input type="checkbox" id="verify_offsets" name="verify_offsets" onclick="verifyOffsetsToggle();" checked /> 
+			<b><span class="white">Stackframe:</span></b><input type="checkbox" id="verify_stackframe" name="verify_stackframe" onclick="verifyStackframeToggle();" /> &nbsp <span class="white">|</span> &nbsp
+		</div>
+		</div>
+		
+		<div id="buttons_launch">
+		<span id="outShowOffsets"><h4 class="red"><b>Trovati Offset: base_fp: 0x0 | stack_frame_addr: 0x0 | jump_2_addr: 0x0 | jump_1_addr: 0x0</b></h4></span>
+		<button id="init_rop" onclick="initROP();">Inizializza ROP Chain</button>&nbsp&nbsp&nbsp&nbsp
+		<button id="load_rop" type="button" onclick="execTrigger();" disabled>Esegui Chain</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+		<button id="reload_page" onclick="reloadPage();">Ricarica Pagina</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+		<button id="reset-options" onclick="setDefaults();">Reset Opzioni</button>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+		<button id="load_settings" onclick="loadSettings();">Carica Impostazioni</button> &nbsp
+		<button id="save_settings" onclick="saveSettings();">Salva Impostazioni</button> &nbsp&nbsp
+		<button id="debug-alert" onclick="showAllDebugOutput();">Mostra tutte le Variabili</button>
+		</div>
+		
+		<!-- <div id="exploit" class="black"></div> -->
+		<div id="exploit" class="white"></div>
+		<!-- <div id="trigger" class="black"></div> -->
+		<div id="trigger" class="white"></div>
+		<!-- <div id="result" class="black"></div><hr> -->
+		<div id="result" class="yellow"></div><hr>
+		<!-- <div id="log" class="black"></div> -->
+		<div id="log" class="white"></div>
+		<!-- <div id="footer" class="black"></div> -->
+		<div id="footer" class="white"></div>
+		
+	</body>
+</html>
+
