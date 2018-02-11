@@ -215,6 +215,8 @@ var memdump_addr_text="80000000";
 var memdump_size=0x10000000;
 var memdump_size_temp=0x10000000;
 var memdump_size_text="10000000";
+var memdump_end=0x8FFFFFFF;
+var memdump_end_text="8FFFFFFF";
 
 var rtn_val=0x00000000;
 var rtn_val_seen=false;

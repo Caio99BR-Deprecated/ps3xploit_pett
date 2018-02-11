@@ -343,3 +343,13 @@ body {
     color: white;
 	font-size: 10px
 }
+
+
+/* Hide Stuff */
+#gui_chk_default_settings {
+	display: none;
+}
+
+#default_settings {
+	display: none;
+}

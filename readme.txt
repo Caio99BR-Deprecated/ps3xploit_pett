@@ -32,6 +32,12 @@ Spanish Spain		@Ivoyko
 Version History
 ============================================================
 
+v0.1.1
+- Fixed fail message if strings not found
+- Updated HTML and JS for GUI
+- Removed Default Settings option from GUI
+- Fixed Misc Bugs
+
 v0.1.0
 - Cleaned Up and Fixed GUI (thanks @ErikPshat)
 - Added New Strings To Multi-Language Files (@neno20115,@Ivoyko,@Ripp3RkoS,@HollowChris,@Caio99BR)

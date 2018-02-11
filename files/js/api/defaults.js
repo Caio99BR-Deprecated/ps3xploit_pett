@@ -190,30 +190,17 @@ function searchFail()
 {
 	total_loops=0;
 	searchResetTimeout();
-	if(failCount<failCountMax)
+	
+	if(allOffsetsFound)
 	{
-		if(allOffsetsFound)
-		{
-			result_msg=msg_string_verify_fail;
-		}
-		else
-		{
-			result_msg=msg_string_search_fail;
-		}
+		result_msg=msg_string_verify_fail;
 	}
 	else
 	{
-		if(allOffsetsFound)
-		{
-			result_msg=msg_string_verify_fail_max;
-		}
-		else
-		{
-			result_msg=msg_string_search_fail_max;
-		}
+		result_msg=msg_string_search_fail;
 	}
 	
-	recheckVerifyJump1();
+	//recheckVerifyJump1();
 	document.getElementById('result').innerHTML=result_msg;
 	document.getElementById("reload_page").disabled=false;
 	reload_page.focus();
@@ -1827,7 +1814,8 @@ function setPathNameDest(path){
 	if((x==="/dev_usb000/LIC.EDAT")||(x==="/dev_hdd0/game/PS3XPLOIT/LICDIR/LIC.EDAT"))
 	{
 		file_size=0x10190;
-		setValueToHTML("file_size_edit",file_size.toString(16));
+		file_size_display="0x"+file_size.toString(16);
+		setValueToHTML("file_size_edit",file_size_display);
 		if (confirm(msg_anti_piracy_edat)){setValueToHTML("path_dest",x);}else{reloadPage();}
 	}
 } 
@@ -1836,7 +1824,7 @@ function setUserID(path){
 	if(path.value===""){user_id="00000001";}else{user_id=path.value;}
 	user_home_path=dev_hdd0_home+path.value+"/";
 	setValueToHTML("path_dest",user_home_path);
-	
+	alert(gui_txt_user_id_new+user_id+gui_txt_home_path_new+user_home_path);
 } 
 
 // Reboot Selector
@@ -1965,14 +1953,14 @@ function setMemDumpSize(marked_memdump_size)
 {
 	var x="";
 	memdump_size=parseInt(marked_memdump_size.value);
-	memdump_size_temp=memdump_size;
+	memdump_size_temp=memdump_size;// actually start_addr+size [fix later]
 	addr_end=memdump_addr_temp+memdump_size;
 	memdump_size_text=addr_end.toString(16).toUpperCase();
 	x=path_memdump_start+memdump_addr_text+path_memdump_mid+memdump_size_text+path_memdump_end;
 	
 	setValueToHTML("marked_memdump_size_edit","0x"+memdump_size_text);
 	setValueToHTML("path_dest",x);
-	init_rop.focus();
+	memdump_save_new_values.focus();
 } 
 
 function saveMemdumpValues()
@@ -1986,6 +1974,13 @@ function saveMemdumpValues()
 	setValueToHTML("marked_memdump_addr",memdump_addr_text);
 	setValueToHTML("marked_memdump_size",memdump_size_text);
 	setValueToHTML("path_dest",x);
+	
+	memdump_end=memdump_size-memdump_addr;// this is size [fix later]
+	memdump_end_text=memdump_end.toString(16).toUpperCase();// this is size [fix later]
+	
+	alert(msg_memdump_size+memdump_end_text+msg_memdump_start_addr+memdump_addr_text+msg_memdump_end_addr+memdump_size_text);
+	
+	init_rop.focus();
 }
 
 /*

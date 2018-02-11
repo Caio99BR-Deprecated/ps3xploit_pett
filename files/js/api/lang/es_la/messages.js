@@ -100,7 +100,6 @@ var msg_get_device_info1="Retorno de Dispositivo: ";
 var msg_get_device_info2="\n\nUsa para cadena sys_storage_report_devices";
 
 // Debugging
-
 var msg_debug_placeholder="Lazy XP +1";
 
 var msg_stackframe_check="This will check the default stackframe for problems.\n\nIf it crashes or does not display a success message, then there is an issue!";
@@ -128,7 +127,6 @@ var offset_find_stack_frame="stack_frame";
 var offset_find_jump2="jump2";
 var offset_find_jump1="jump1";
 
-
 var msg_page_args_not_set="Argumentos de Pagina no establecidos!\n\nClic en Establecer argumentos y reintenta!";
 var msg_no_chain_selected="sin Cadena ROP Chain Seleccionada\n\nUsa la ventana desplegable para seleccionar una";
 var msg_media_not_supported="Este medio de almacenamiento aun no esta implementado!";
@@ -136,9 +134,8 @@ var msg_cannot_continue="No se puede Continuar....Regresando!";
 
 var msg_invalid_title_id="ALERTA!\n\nLa ID del Juego Introducido es Incorrecto!\n\nUsando ID Predeterminada.";
 
-
 // index GUI text
-var gui_title="Plantilla para Tutorial PS3Xploit <font color='#FFF' size='3'>v0.1.0</font>";
+var gui_title="Plantilla para Tutorial PS3Xploit <font color='#FFF' size='3'>v0.1.1</font>";
 var gui_team="por PS3Xploit Team: <b><font color='#7700DA'>W</font><font color='#FFF'> | </font><font color='#7700DA'>esc0rtd3w</font><font color='#FFF'> | </font><font color='#7700DA'>habib</font><font color='#FFF'> | </font><font color='#7700DA'>bguerville</font></b>";
 var gui_credits="<b>Agradecimientos a xerpi por el port del exploit de memoria de usuario del PS3, a zecoxao y Joonie por su soporte temprano y continuo, mysis por documentar vsh exports y plugins, desde luego a los contribuidores del psdevwiki, a STLcardsWS por su prologada y efectiva contribucion y a toda la Comunidad PS3 de Hackers/Desarrolladores pasados y presentes, Tu sabes quien eres. Gracias tambien a littlebalup por dar la idea y la implementacion js que usamos para elaborar la edicion HDD de Dumpers y Flasher. gracias ademas a B7U3 C50SS, Endless, y 0x1991337 por testear los syscall del tutorial  y otra ayuda!</font> <font color='#white_smaller'><b>Mas Detalles y Noticias en <a href='http://www.psx-place.com'>http://www.psx-place.com</a>. Sitio Oficial <a href='http://ps3xploit.com'>http://ps3xploit.com</a></b>";
 
@@ -156,7 +153,6 @@ var gui_chk_reboot_mode_select="* Seleccione Modo *";
 var gui_chk_reboot_mode_soft="Reinicio Suave (XMB)";
 var gui_chk_reboot_mode_hard="Reinicio Completo";
 var gui_chk_reboot_mode_off="Apagar";
-
 
 // ROP Chain Text
 
@@ -192,7 +188,6 @@ var gui_txt_option_dir_read_write_test="Prueba de Lectura/Escritura (Directorios
 var gui_txt_preset_chains_fun="Fun";
 var gui_txt_option_fun_test="Prueba Bips";
 
-
 // Other Syscall Chains
 
 // Memory/Syatem
@@ -225,7 +220,6 @@ var gui_txt_option_sys_fs_unmount="sys_fs_unmount";
 var gui_txt_syscall_chains_system="Sistema";
 var gui_txt_option_sys_ss_utoken_if="sys_ss_utoken_if";
 
-
 // Process/Thread
 
 // Process
@@ -249,7 +243,6 @@ var gui_txt_option_sys_ppu_thread_stop="sys_ppu_thread_stop";
 // Thread ID
 var gui_txt_syscall_chains_thread_id="ID Hilos";
 
-
 // Network
 var gui_txt_syscall_group_network="RED: ";
 var gui_txt_syscall_chains_sys_net="sys_net";
@@ -259,7 +252,6 @@ var gui_txt_option_sys_net_write_dump="sys_net_write_dump";
 var gui_txt_option_sys_net_close_dump="sys_net_close_dump";
 
 var gui_txt_option_url="URL: ";
-
 
 // Debugging
 var gui_txt_syscall_group_debugging="Depuracion: ";
@@ -284,7 +276,6 @@ var gui_txt_option_led_action_off="Apagado";
 var gui_txt_option_led_action_blink_fast="Parpadeo Rapido";
 var gui_txt_option_led_action_blink_slow="Parpadeo Lento";
 
-
 // Beep Parameters
 var gui_txt_syscall_group_beep_params="Parametros de Bips: ";
 var gui_txt_syscall_chains_beeps="# de Bips";
@@ -295,7 +286,6 @@ var gui_txt_option_beep_2f="2 Bips Rapidos";
 var gui_txt_option_beep_1="1 Bip";
 var gui_txt_option_beep_1f="1 Bip Rapido";
 var gui_txt_option_beep_flatline="Continuos";
-
 
 // Memory Dump
 var gui_txt_syscall_group_memdump="Dump de Memoria:";
@@ -308,10 +298,10 @@ var gui_txt_memdump_address_start="Inicio:";
 var gui_txt_memdump_address_end="Fin:";
 var gui_txt_btn_memdump_set_values="Fijar Nuevos Valores";
 
-
 var gui_txt_group_user_id="ID Usuario:";
 var gui_txt_option_user_id_default="* Predeterminado *";
-
+var gui_txt_user_id_new="User ID Set To: ";
+var gui_txt_home_path_new="\n\nNew Home Path Is: \n\n";
 
 var gui_txt_group_permissions="Permisos:";
 var gui_txt_option_chmod="chmod";
@@ -325,7 +315,7 @@ var gui_txt_set_titleid="PS3XPLOIT";
 var gui_txt_btn_set_titleid="Establecer";
 
 var gui_txt_group_path_source="Origen:";
-var gui_txt_group_path_destination="Destino: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp";
+var gui_txt_group_path_destination="Destino: ";
 
 // XMB Transfer
 var gui_txt_syscall_group_xmb_transfer="Opciones Transferencia XMB ";
@@ -339,7 +329,6 @@ var gui_txt_option_xmb_save_msg="&#x2192 Archivo &#x2192 Destino Guardado &#x219
 
 var gui_txt_group_payload_type="Tipo Payload ";
 var gui_txt_group_payload_type_help="<b><i>reemplaza los payloads predeterminados con los tuyos, usando los mismos nombres, y ubicandolos en la carpeta TEMPLATE/payloads/ de tu HTML </b></i>";
-
 
 // String Search
 var gui_txt_group_string_search="Busqueda:";
@@ -363,4 +352,3 @@ var gui_txt_option_reset_btn="Reiniciar Opciones";
 var gui_txt_option_load_settings_btn="Cargar Configuracion";
 var gui_txt_option_save_settings_btn="Guardar Configuracion";
 var gui_txt_option_debug_show_var_btn="Mostrar Todas las Variables";
-

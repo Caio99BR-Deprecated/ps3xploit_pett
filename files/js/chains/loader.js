@@ -57,6 +57,9 @@ function initROP()
 		
 		total_loops++;
 		
+		// reset string search message to fail if total=max
+		if(total_loops===max_loops){result_msg=msg_string_verify_fail;}
+		
 		toggleDisableButtons(true);
 		hideElement("debug-alert", true);// hide debug output button by default
 		

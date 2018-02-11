@@ -100,7 +100,6 @@ var msg_get_device_info1="Returned Device: ";
 var msg_get_device_info2="\n\nUse This For sys_storage_report_devices Chain";
 
 // Debugging
-
 var msg_debug_placeholder="Lazy XP +1";
 
 var msg_stackframe_check="This will check the default stackframe for problems.\n\nIf it crashes or does not display a success message, then there is an issue!";
@@ -128,7 +127,6 @@ var offset_find_stack_frame="stack_frame";
 var offset_find_jump2="jump2";
 var offset_find_jump1="jump1";
 
-
 var msg_page_args_not_set="Argomento Pagina non Impostato!\n\nClicca il pulsante Imposta Argomenti e Riprova!";
 var msg_no_chain_selected="Nessuna ROP Chain Hex Selezionatan\nUsa la tendina per selezionarne una";
 var msg_media_not_supported="Questo media non e' al momento implementato!";
@@ -136,9 +134,8 @@ var msg_cannot_continue="Impossibile continuare, uscendo....!";
 
 var msg_invalid_title_id="ALERT!\n\nThe Title ID Entered Has An Invalid Size!\n\nUsing Default ID.";
 
-
 // index GUI text
-var gui_title="PS3 Exploitation Tutorial Template <font color='#FFF' size='3'>v0.1.0</font>";
+var gui_title="PS3 Exploitation Tutorial Template <font color='#FFF' size='3'>v0.1.1</font>";
 var gui_team="by PS3Xploit Team: <b><font color='#7700DA'>W</font><font color='#FFF'> | </font><font color='#7700DA'>esc0rtd3w</font><font color='#FFF'> | </font><font color='#7700DA'>habib</font><font color='#FFF'> | </font><font color='#7700DA'>bguerville</font></b>";
 var gui_credits="<b>Many thanks to xerpi for the userland memory leak exploit ps3 port, zecoxao & Joonie for their early & continued support, mysis for documenting vsh exports & plugins, the psdevwiki contributors of course, STLcardsWS for his long standing contribution & all ps3 community hackers/devs past & present, you know who you are. Thanks to littlebalup as well for providing the idea & the related js implementation we used to make the HDD edition of the Dumpers and Flasher. Also thanks to B7U3 C50SS, Endless, and 0x1991337 for tutorial syscall testing and other help!</font> <font color='#white_smaller'><b>More details & news on <a href='http://www.psx-place.com'>http://www.psx-place.com</a>. Official website at <a href='http://ps3xploit.com'>http://ps3xploit.com</a></b>";
 
@@ -156,7 +153,6 @@ var gui_chk_reboot_mode_select="* Select Mode *";
 var gui_chk_reboot_mode_soft="Soft Reboot";
 var gui_chk_reboot_mode_hard="Hard Reboot";
 var gui_chk_reboot_mode_off="Power Down";
-
 
 // ROP Chain Text
 
@@ -192,7 +188,6 @@ var gui_txt_option_dir_read_write_test="Read/Write Directory Test";
 var gui_txt_preset_chains_fun="Fun";
 var gui_txt_option_fun_test="Beep Test";
 
-
 // Other Syscall Chains
 
 // Memory/Syatem
@@ -225,7 +220,6 @@ var gui_txt_option_sys_fs_unmount="sys_fs_unmount";
 var gui_txt_syscall_chains_system="System";
 var gui_txt_option_sys_ss_utoken_if="sys_ss_utoken_if";
 
-
 // Process/Thread
 
 // Process
@@ -249,7 +243,6 @@ var gui_txt_option_sys_ppu_thread_stop="sys_ppu_thread_stop";
 // Thread ID
 var gui_txt_syscall_chains_thread_id="Thread ID";
 
-
 // Netowrk
 var gui_txt_syscall_group_network="Network: ";
 var gui_txt_syscall_chains_sys_net="sys_net";
@@ -260,12 +253,10 @@ var gui_txt_option_sys_net_close_dump="sys_net_close_dump";
 
 var gui_txt_option_url="URL: ";
 
-
 // Debugging
 var gui_txt_syscall_group_debugging="Debugging: ";
 var gui_txt_syscall_chains_debug_sc="System Calls";
 var gui_txt_option_debug_placeholder="beep_test";
-
 
 // LED Control
 var gui_txt_syscall_group_led="LED Control:";
@@ -284,7 +275,6 @@ var gui_txt_option_led_action_off="Off";
 var gui_txt_option_led_action_blink_fast="Blink Fast";
 var gui_txt_option_led_action_blink_slow="Blink Slow";
 
-
 // Beep Parameters
 var gui_txt_syscall_group_beep_params="Beep Parameters: ";
 var gui_txt_syscall_chains_beeps="# of Beeps";
@@ -295,7 +285,6 @@ var gui_txt_option_beep_2f="2 Beeps Fast";
 var gui_txt_option_beep_1="1 Beep";
 var gui_txt_option_beep_1f="1 Beep Fast";
 var gui_txt_option_beep_flatline="Flatline";
-
 
 // Memory Dump
 var gui_txt_syscall_group_memdump="Memory Dump:";
@@ -308,10 +297,10 @@ var gui_txt_memdump_address_start="Start:";
 var gui_txt_memdump_address_end="End:";
 var gui_txt_btn_memdump_set_values="Set New Values";
 
-
 var gui_txt_group_user_id="User ID:";
 var gui_txt_option_user_id_default="* Default *";
-
+var gui_txt_user_id_new="User ID Set To: ";
+var gui_txt_home_path_new="\n\nNew Home Path Is: \n\n";
 
 var gui_txt_group_permissions="Permissions:";
 var gui_txt_option_chmod="chmod";
@@ -325,7 +314,7 @@ var gui_txt_set_titleid="PS3XPLOIT";
 var gui_txt_btn_set_titleid="Set";
 
 var gui_txt_group_path_source="Source:";
-var gui_txt_group_path_destination="Destination: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp";
+var gui_txt_group_path_destination="Destination: ";
 
 // XMB Transfer
 var gui_txt_syscall_group_xmb_transfer="XMB Transfer Option ";
@@ -339,7 +328,6 @@ var gui_txt_option_xmb_save_msg="&#x2192 File &#x2192 Save Target &#x2192 System
 
 var gui_txt_group_payload_type="Payload Type ";
 var gui_txt_group_payload_type_help="<b><i>Replace default payloads with your own files, using the same names, and place in TEMPLATE/payloads/ folder under HTML source</b></i>";
-
 
 // String Search
 var gui_txt_group_string_search="Search:";
@@ -363,4 +351,3 @@ var gui_txt_option_reset_btn="Reset Options";
 var gui_txt_option_load_settings_btn="Load Settings";
 var gui_txt_option_save_settings_btn="Save Settings";
 var gui_txt_option_debug_show_var_btn="Show All Variables";
-

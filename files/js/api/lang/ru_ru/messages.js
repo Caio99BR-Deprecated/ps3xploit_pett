@@ -100,7 +100,6 @@ var msg_get_device_info1="Код возврата устройства: ";
 var msg_get_device_info2="\n\nИспользуйте это для цепочки sys_storage_report_devices";
 
 // Debugging
-
 var msg_debug_placeholder="Ленивый XP +1";
 
 var msg_stackframe_check="Это проверит стековый фрейм по умолчанию для выявления возможных проблем.\n\nЕсли произошёл крах системы или не отображается сообщение об успешном завершении, то значит возникла проблема!";
@@ -128,7 +127,6 @@ var offset_find_stack_frame="stack_frame";
 var offset_find_jump2="jump2";
 var offset_find_jump1="jump1";
 
-
 var msg_page_args_not_set="Аргументы страницы не заданы!\n\nНажмите кнопку «Установить аргументы» и повторите попытку!";
 var msg_no_chain_selected="Не выбрана цепочка ROP в хекс\n\nИспользуйте раскрывающийся список для выбора";
 var msg_media_not_supported="Этот выбор Медиа еще не реализован!";
@@ -136,9 +134,8 @@ var msg_cannot_continue="Не удаётся продолжить... Возвр�
 
 var msg_invalid_title_id="ВНИМАНИЕ!\n\nНе верный размер введённого Title ID!\n\Используется ID по умолчанию.";
 
-
 // index GUI text
-var gui_title="PS3 Exploitation Tutorial Template <font color='#FFF' size='3'>v0.1.0</font>";
+var gui_title="PS3 Exploitation Tutorial Template <font color='#FFF' size='3'>v0.1.1</font>";
 var gui_team="от команды PS3Xploit: <b><font color='#7700DA'>W</font><font color='#FFF'> | </font><font color='#7700DA'>esc0rtd3w</font><font color='#FFF'> | </font><font color='#7700DA'>habib</font><font color='#FFF'> | </font><font color='#7700DA'>bguerville</font></b>";
 var gui_credits="<b>Большое спасибо xerpi за порт эксплоита утечки памяти на PS3, zecoxao & Joonie за поддержку, mysis за документацию по vsh экспортам и плагинам, авторов psdevwiki, STLcardsWS за постоянный вклад, всё PS3 сообщество хакеров/разработчиков. Благодарим littlebalup за идеи с реализацией js для создания HDD-версии Дамперов и Флешера. Так же благодарим B7U3 C50SS, Endless и 0x1991337 за инструктаж по тестированию системных вызовов и другую помощь!</font> <font color='#white_smaller'><b>Больше деталей и новостей на <a href='http://www.psx-place.com'>http://www.psx-place.com</a>. Официальный сайт: <a href='http://ps3xploit.com'>http://ps3xploit.com</a></b>";
 
@@ -156,7 +153,6 @@ var gui_chk_reboot_mode_select="* Выбор режима *";
 var gui_chk_reboot_mode_soft="Мягкая перезагрузка";
 var gui_chk_reboot_mode_hard="Жёсткая перезагрузка";
 var gui_chk_reboot_mode_off="Выключить питание";
-
 
 // ROP Chain Text
 
@@ -192,7 +188,6 @@ var gui_txt_option_dir_read_write_test="Тест Чтения/Записи ка�
 var gui_txt_preset_chains_fun="Развлечение";
 var gui_txt_option_fun_test="Тест сигнала";
 
-
 // Other Syscall Chains
 
 // Memory/Syatem
@@ -225,7 +220,6 @@ var gui_txt_option_sys_fs_unmount="sys_fs_unmount";
 var gui_txt_syscall_chains_system="Система";
 var gui_txt_option_sys_ss_utoken_if="sys_ss_utoken_if";
 
-
 // Process/Thread
 
 // Process
@@ -249,7 +243,6 @@ var gui_txt_option_sys_ppu_thread_stop="sys_ppu_thread_stop";
 // Thread ID
 var gui_txt_syscall_chains_thread_id="ID потока";
 
-
 // Netowrk
 var gui_txt_syscall_group_network="Сеть: ";
 var gui_txt_syscall_chains_sys_net="sys_net";
@@ -260,12 +253,10 @@ var gui_txt_option_sys_net_close_dump="sys_net_close_dump";
 
 var gui_txt_option_url="URL: ";
 
-
 // Debugging
 var gui_txt_syscall_group_debugging="Отладка: ";
 var gui_txt_syscall_chains_debug_sc="Системные вызовы";
 var gui_txt_option_debug_placeholder="beep_test";
-
 
 // LED Control
 var gui_txt_syscall_group_led="Управление светодиодами:";
@@ -284,7 +275,6 @@ var gui_txt_option_led_action_off="Выключить";
 var gui_txt_option_led_action_blink_fast="Мигать быстро";
 var gui_txt_option_led_action_blink_slow="Мигать медленно";
 
-
 // Beep Parameters
 var gui_txt_syscall_group_beep_params="Параметры: ";
 var gui_txt_syscall_chains_beeps="# сигналов";
@@ -295,7 +285,6 @@ var gui_txt_option_beep_2f="2 коротких сигнала";
 var gui_txt_option_beep_1="1 сигнал";
 var gui_txt_option_beep_1f="1 короткий сигнал";
 var gui_txt_option_beep_flatline="Постоянный";
-
 
 // Memory Dump
 var gui_txt_syscall_group_memdump="Дамп памяти:";
@@ -308,10 +297,10 @@ var gui_txt_memdump_address_start="Начало:";
 var gui_txt_memdump_address_end="Конец:";
 var gui_txt_btn_memdump_set_values="Применить";
 
-
 var gui_txt_group_user_id="ID пользователя:";
 var gui_txt_option_user_id_default="* По умолчанию *";
-
+var gui_txt_user_id_new="User ID Set To: ";
+var gui_txt_home_path_new="\n\nNew Home Path Is: \n\n";
 
 var gui_txt_group_permissions="Права:";
 var gui_txt_option_chmod="chmod";
@@ -325,7 +314,7 @@ var gui_txt_set_titleid="PS3XPLOIT";
 var gui_txt_btn_set_titleid="Применить";
 
 var gui_txt_group_path_source="Источник:";
-var gui_txt_group_path_destination="Назначение: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp";
+var gui_txt_group_path_destination="Назначение: ";
 
 // XMB Transfer
 var gui_txt_syscall_group_xmb_transfer="Передачи в XMB ";
@@ -339,7 +328,6 @@ var gui_txt_option_xmb_save_msg="&#x2192 Файл &#x2192 Сохранить ц�
 
 var gui_txt_group_payload_type="Тип Payload ";
 var gui_txt_group_payload_type_help="<b><i>Замение payloads по умолчанию своими файлами, используя такие же названия, и положите в папку TEMPLATE/payloads/ из-под HTML источника</b></i>";
-
 
 // String Search
 var gui_txt_group_string_search="Поиск:";
