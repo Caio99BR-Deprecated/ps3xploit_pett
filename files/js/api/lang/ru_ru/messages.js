@@ -23,7 +23,7 @@ var msg_settings_load="Это экспериментально и загружа
 var msg_settings_save="Это экспериментально и сохраняет настройки в куки!";
 
 // MinVer/CFW Compatibility
-var msg_minver_loaded_into_mem="Возвращённое значение MinVer загружено в память!\n\nНажмите снова кнопку «Выполнить» для чтения и отображения!";
+var msg_minver_loaded_into_mem="Возвращённое значение MinVer загружено в память!\n\nНажмите снова кнопку «Выполнить цепочку» для чтения и отображения!";
 var msg_minver_start="Ваша минимальная версия  понижения ";
 var msg_minver_mid=" является ";
 var msg_minver_end=" совместимой с CFW в данное время!";
@@ -49,7 +49,8 @@ var msg_mount_test="** В ФАЗЕ ТЕСТИРОВАНИЯ **!\n\nЭто буд
 
 // File Operations
 var msg_default_size="Используется размер по умолчанию 0x140";
-var msg_new_size="Новый размер файла: 0x";
+var msg_new_size="Новый размер файла: ";
+var msg_destination_path_set_new="New Path Set To:\n\n";
 var msg_destination_path_incorrect="Путь назначения некорректен!\n\nОн должен быть выставлен перед изменением Title ID.";
 
 // Trigger Messages
@@ -61,24 +62,24 @@ var msg_search_offsets="<h3><b>Поиск смещений в памяти! По
 var msg_verify_offsets="<h3><b>Проверка смещений в памяти! Пожалуйста подождите... <br>Не закрывайте браузер!</b></h3>";
 
 // Fail Search Messages
-var msg_string_search_fail="<h3><b><font color='210003'>Не найдены все смещения!</font><font color='7700DA'> Если поиск снова не срабатывает, настройте параметры поиска или перезапустите браузер!</font></b></h3>";
-var msg_string_search_fail_max="<h3><b><font color='210003'>Не найдены все смещения!</font><font color='7700DA'> Последняя повторная попытка! Пожалуйста перезагрузите браузер!</font></b></h3>";
+var msg_string_search_fail="<h3><b><font color='#210003'>Не найдены все смещения!</font><font color='#7700DA'> Если поиск снова не срабатывает, настройте параметры поиска или перезапустите браузер!</font></b></h3>";
+var msg_string_search_fail_max="<h3><b><font color='#210003'>Не найдены все смещения!</font><font color='#7700DA'> Последняя повторная попытка! Пожалуйста перезагрузите браузер!</font></b></h3>";
 
 // Verify Strings Fail
-var msg_string_verify_fail="<h3><b><font color='210003'>Не проверены все смещения!</font><font color='7700DA'> Если проверка снова не срабатывает, перезапустите браузер!</font></b></h3>";
-var msg_string_verify_fail_max="<h3><b><font color='210003'>Не проверены все смещения!</font><font color='7700DA'> Последняя повторная попытка! Пожалуйста перезагрузите браузер!</font></b></h3>";
+var msg_string_verify_fail="<h3><b><font color='#210003'>Не проверены все смещения!</font><font color='#7700DA'> Если проверка снова не срабатывает, перезапустите браузер!</font></b></h3>";
+var msg_string_verify_fail_max="<h3><b><font color='#210003'>Не проверены все смещения!</font><font color='#7700DA'> Последняя повторная попытка! Пожалуйста перезагрузите браузер!</font></b></h3>";
 
 // Init Success
-var msg_success_init="<h3><b><font color='386E38'>УСПЕШНО!</font><font color='7700DA'> <br>Теперь вы можете выполнить вашу цепочку!</font></b></h3>";
+var msg_success_init="<h3><b><font color='#386E38'>УСПЕШНО!</font><font color='#7700DA'> <br>Теперь вы можете выполнить вашу цепочку!</font></b></h3>";
 
 // Exec Success
-var success_chain_exec="<h3><b><font color='386E38'>Цепочка выполнена успешно!</font></b></h3>";
-var success_chain_exec_press_again="<h3><b><font color='386E38'>Нажмите кнопку «Выполнить» еще раз!</font></b></h3>";
-var success_chain_exec_psid="<h3><b><font color='386E38'>PSID сдамплен успешно!</font></b></h3>";
-var success_chain_exec_idps="<h3><b><font color='386E38'>IDPS сдамплен успешно!</font></b></h3>";
-var success_chain_exec_memdump="<h3><b><font color='386E38'>Память сдамплена успешно!</font></b></h3>";
-var success_chain_exec_read_write_file="<h3><b><font color='386E38'>Успешно передан источник в пункт назначения!</font></b></h3>";
-var success_mount_device="<h3><b><font color='386E38'>Успешно смонтрирован /dev_hdd1/! Перезапустите браузер и запустите 'R/W File Chain' для дампа.</font></b></h3>";
+var success_chain_exec="<h3><b><font color='#386E38'>Цепочка выполнена успешно!</font></b></h3>";
+var success_chain_exec_press_again="<h3><b><font color='#386E38'>Нажмите кнопку «Выполнить цепочку» еще раз!</font></b></h3>";
+var success_chain_exec_psid="<h3><b><font color='#386E38'>PSID сдамплен успешно!</font></b></h3>";
+var success_chain_exec_idps="<h3><b><font color='#386E38'>IDPS сдамплен успешно!</font></b></h3>";
+var success_chain_exec_memdump="<h3><b><font color='#386E38'>Память сдамплена успешно!</font></b></h3>";
+var success_chain_exec_read_write_file="<h3><b><font color='#386E38'>Успешно передан источник в пункт назначения!</font></b></h3>";
+var success_mount_device="<h3><b><font color='#386E38'>Успешно смонтрирован /dev_hdd1/! Перезапустите браузер и запустите 'R/W File Chain' для дампа.</font></b></h3>";
 
 // Compatibility/Offset Messages
 var ua_msg="<hr><h3>Информация о браузере системы PS3: "+navigator.userAgent+ "</h3>";
@@ -94,7 +95,7 @@ var msg_anti_piracy_edat="АНТИ-ПИРАТСКИЙ ОТКАЗ ОТ ОТВЕТ
 var msg_thread_name="Hello_From_PS3Xploit";
 
 // Devices
-var msg_device_loaded_into_mem="Значение кода возврата устройства загружено в память!\n\nНажмите снова кнопку «Выполнить», чтобы прочитать и отобразить!";
+var msg_device_loaded_into_mem="Значение кода возврата устройства загружено в память!\n\nНажмите снова кнопку «Выполнить цепочку», чтобы прочитать и отобразить!";
 var msg_get_device_info1="Код возврата устройства: ";
 var msg_get_device_info2="\n\nИспользуйте это для цепочки sys_storage_report_devices";
 
@@ -105,9 +106,9 @@ var msg_debug_placeholder="Ленивый XP +1";
 var msg_stackframe_check="Это проверит стековый фрейм по умолчанию для выявления возможных проблем.\n\nЕсли произошёл крах системы или не отображается сообщение об успешном завершении, то значит возникла проблема!";
 
 // String Matching
-var verify_fail="<font color='210003'>НЕУДАЧА: Строки не совпадают с памятью!</font>";
-var verify_success="<font color='2a1003'>УСПЕШНО: Строки совпадают с памятью!</font>";
-var verify_skip="<font color='2a1003'>УСПЕШНО: Не проверять строки в памяти!</font>";
+var verify_fail="<font color='#210003'>НЕУДАЧА: Строки не совпадают с памятью!</font>";
+var verify_success="<font color='#2a1003'>УСПЕШНО: Строки совпадают с памятью!</font>";
+var verify_skip="<font color='#2a1003'>УСПЕШНО: Не проверять строки в памяти!</font>";
 
 var msg_search_flash_type_start="Поиск настроек параметров для ";
 var msg_search_flash_type_end=" Тип памяти!";
@@ -137,8 +138,8 @@ var msg_invalid_title_id="ВНИМАНИЕ!\n\nНе верный размер в
 
 
 // index GUI text
-var gui_title="PS3 Exploitation Tutorial Template <font color='#FFF' size='3'>v0.0.9</font>";
-var gui_team="от команды PS3Xploit: <b><font color='#7700DA'>W</font><font color='#FFFFFF'> | </font><font color='#7700DA'>esc0rtd3w</font><font color='#FFFFFF'> | </font><font color='#7700DA'>habib</font><font color='#FFFFFF'> | </font><font color='#7700DA'>bguerville</font></b>";
+var gui_title="PS3 Exploitation Tutorial Template <font color='#FFF' size='3'>v0.1.0</font>";
+var gui_team="от команды PS3Xploit: <b><font color='#7700DA'>W</font><font color='#FFF'> | </font><font color='#7700DA'>esc0rtd3w</font><font color='#FFF'> | </font><font color='#7700DA'>habib</font><font color='#FFF'> | </font><font color='#7700DA'>bguerville</font></b>";
 var gui_credits="<b>Большое спасибо xerpi за порт эксплоита утечки памяти на PS3, zecoxao & Joonie за поддержку, mysis за документацию по vsh экспортам и плагинам, авторов psdevwiki, STLcardsWS за постоянный вклад, всё PS3 сообщество хакеров/разработчиков. Благодарим littlebalup за идеи с реализацией js для создания HDD-версии Дамперов и Флешера. Так же благодарим B7U3 C50SS, Endless и 0x1991337 за инструктаж по тестированию системных вызовов и другую помощь!</font> <font color='#white_smaller'><b>Больше деталей и новостей на <a href='http://www.psx-place.com'>http://www.psx-place.com</a>. Официальный сайт: <a href='http://ps3xploit.com'>http://ps3xploit.com</a></b>";
 
 // Checkboxes First Section
@@ -320,6 +321,7 @@ var gui_txt_group_filesize="Размер файла:";
 var gui_txt_group_titleid="TitleID:";
 
 var gui_txt_btn_set_filesize="Применить";
+var gui_txt_set_titleid="PS3XPLOIT";
 var gui_txt_btn_set_titleid="Применить";
 
 var gui_txt_group_path_source="Источник:";

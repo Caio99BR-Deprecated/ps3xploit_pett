@@ -49,7 +49,8 @@ var msg_mount_test="** EM FASE DE TESTE **!\n\nIsto irá montar a partição /de
 
 // File Operations
 var msg_default_size="Utilizando o tamanho padrão 0x140";
-var msg_new_size="Novo Tamanho de Arquivo: 0x";
+var msg_new_size="Novo Tamanho de Arquivo: ";
+var msg_destination_path_set_new="New Path Set To:\n\n";
 var msg_destination_path_incorrect="O caminho de destino está incorreto!\n\nIsto deve ser alterado antes de trocar o Title ID.";
 
 // Trigger Messages
@@ -61,24 +62,24 @@ var msg_search_offsets="<h3><b>Procurando por offsets na memória! Por favor esp
 var msg_verify_offsets="<h3><b>Verificando os offsets na memória! Por favor espere.... <br>NÃO FECHE o navegador agora!!</b></h3>";
 
 // Fail Search Messages
-var msg_string_search_fail="<h3><b><font color=%227700DA%22>Não encontrou todos os offsets!</font><font color=%227700DA%22> Se a busca falhar novamente, ajuste as configurações de busca ou REINICIE o navegador!</b></font></h3>";
-var msg_string_search_fail_max="<h3><b><font color=%227700DA%22>Não encontrou todos os offsets!</font><font color=%227700DA%22> Máximo de tentativas alcançado! Por favor, REINICIEo o navegador!</b></font></h3>";
+var msg_string_search_fail="<h3><b><font color='#7700DA'>Não encontrou todos os offsets!</font><font color='#7700DA'> Se a busca falhar novamente, ajuste as configurações de busca ou REINICIE o navegador!</b></font></h3>";
+var msg_string_search_fail_max="<h3><b><font color='#7700DA'>Não encontrou todos os offsets!</font><font color='#7700DA'> Máximo de tentativas alcançado! Por favor, REINICIEo o navegador!</b></font></h3>";
 
 // Verify Strings Fail
-var msg_string_verify_fail="<h3><b><font color=%227700DA%22>Não verificou todos os offsets!</font><font color=%227700DA%22> Se a verificação falhar novamente, REINICIE o navegador!</b></font></h3>";
-var msg_string_verify_fail_max="<h3><b><font color=%227700DA%22>Não verificou todos os offsets!</font><font color=%227700DA%22> Máximo de tentativas alcançada! Por favor, REINICIE o navegador!</b></font></h3>";
+var msg_string_verify_fail="<h3><b><font color='#7700DA'>Não verificou todos os offsets!</font><font color='#7700DA'> Se a verificação falhar novamente, REINICIE o navegador!</b></font></h3>";
+var msg_string_verify_fail_max="<h3><b><font color='#7700DA'>Não verificou todos os offsets!</font><font color='#7700DA'> Máximo de tentativas alcançada! Por favor, REINICIE o navegador!</b></font></h3>";
 
 // Init Success
-var msg_success_init="<h3><b><font color=%22386E38%22>SUCESSO!</font><font color=%227700DA%22> <br>Agora você pode executar sua cadeia!</font></b></h3>";
+var msg_success_init="<h3><b><font color='#386E38'>SUCESSO!</font><font color='#7700DA'> <br>Agora você pode executar sua cadeia!</font></b></h3>";
 
 // Exec Success
-var success_chain_exec="<h3><b><font color=%22386E38%22>Cadeia executada com sucesso!</font></b></h3>";
-var success_chain_exec_press_again="<h3><b><font color=%22386E38%22>Pressione o botão de Executar mais uma vez!</font></b></h3>";
-var success_chain_exec_psid="<h3><b><font color=%22386E38%22>PSID Dump feito com sucesso!</font></b></h3>";
-var success_chain_exec_idps="<h3><b><font color=%22386E38%22>IDPS Dump feito com sucesso!</font></b></h3>";
-var success_chain_exec_memdump="<h3><b><font color=%22386E38%22>Dump da Memória feito com sucesso!</font></b></h3>";
-var success_chain_exec_read_write_file="<h3><b><font color=%22386E38%22>Transferido da Origem para o Destino com sucesso!</font></b></h3>";
-var success_mount_device="<h3><b><font color=%22386E38%22>Partição /dev_hdd1/ montada com sucesso! Reinicie o navegador e utilize a cadeia de Leitura/Escrita de Arquivos para usar o dump.</font></b></h3>";
+var success_chain_exec="<h3><b><font color='#386E38'>Cadeia executada com sucesso!</font></b></h3>";
+var success_chain_exec_press_again="<h3><b><font color='#386E38'>Pressione o botão de Executar mais uma vez!</font></b></h3>";
+var success_chain_exec_psid="<h3><b><font color='#386E38'>PSID Dump feito com sucesso!</font></b></h3>";
+var success_chain_exec_idps="<h3><b><font color='#386E38'>IDPS Dump feito com sucesso!</font></b></h3>";
+var success_chain_exec_memdump="<h3><b><font color='#386E38'>Dump da Memória feito com sucesso!</font></b></h3>";
+var success_chain_exec_read_write_file="<h3><b><font color='#386E38'>Transferido da Origem para o Destino com sucesso!</font></b></h3>";
+var success_mount_device="<h3><b><font color='#386E38'>Partição /dev_hdd1/ montada com sucesso! Reinicie o navegador e utilize a cadeia de Leitura/Escrita de Arquivos para usar o dump.</font></b></h3>";
 
 // Compatibility/Offset Messages
 var ua_msg="<hr><h3>Informações do Navegador do Sistema PS3: "+navigator.userAgent+ "</h3>";
@@ -106,9 +107,9 @@ var msg_debug_placeholder="Lazy XP +1"; // DON'T NEED TO BE TRANSLATED
 var msg_stackframe_check="Isto vai checar o stackframe padrão procurando por problemas.\n\nSe isso travar ou não mostrar uma mensagem de sucesso, então existe um problema!";
 
 // String Matching
-var verify_fail="<font color=%227700DA%22>FALHA: Sequência não encontrada na memória!</font>";
-var verify_success="<font color=%222a1003%22>SUCESSO: Sequência encontrada na memória!</font>";
-var verify_skip="<font color=%222a1003%22>SUCCESS: Sequência não verificada na memória!</font>";
+var verify_fail="<font color='#7700DA'>FALHA: Sequência não encontrada na memória!</font>";
+var verify_success="<font color='#2a1003'>SUCESSO: Sequência encontrada na memória!</font>";
+var verify_skip="<font color='#2a1003'>SUCCESS: Sequência não verificada na memória!</font>";
 
 var msg_search_flash_type_start="Search Params Set For ";
 var msg_search_flash_type_end=" Flash Type!";
@@ -137,9 +138,9 @@ var msg_invalid_title_id="ALERTA!\n\nO Title ID inserido tem um tamanho invalido
 
 
 // index GUI text
-var gui_title="PS3 Exploitation Tutorial Template <font color=%22000000%22>v0.0.9</font>"; // DON'T NEED TO BE TRANSLATED
-var gui_team="by PS3Xploit Team: <b><font color=%227700DA%22>W</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>esc0rtd3w</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>habib</font><font color=%22FFFFFF%22> | </font><font color=%227700DA%22>bguerville</font></b>";  // DON'T NEED TO BE TRANSLATED
-var gui_credits="<b>Agradeço à @xerpi pelo port para o PS3 do exploit de vazamento de memória no ambiente de usuário, @zecoxao & @Joonie pela suporte inicial e contínuo, @mysis por documentar os plugins e exports, the psdevwiki contributors of course, STLcardsWS for his long standing contribution & all ps3 community hackers/devs past & present, you know who you are. Thanks to littlebalup as well for providing the idea & the related js implementation we used to make the HDD edition of the Dumpers and Flasher. Also thanks to B7U3 C50SS, Endless, and 0x1991337 for tutorial syscall testing and other help!</font> <font color=%22white_smaller%22><b>More details & news on <a href=%22http://www.psx-place.com%22>http://www.psx-place.com</a>. Official website at <a href=%22http://ps3xploit.com%22>http://ps3xploit.com</a></b>";
+var gui_title="PS3 Exploitation Tutorial Template <font color='#FFF' size='3'>v0.1.0</font>"; // DON'T NEED TO BE TRANSLATED
+var gui_team="by PS3Xploit Team: <b><font color='#7700DA'>W</font><font color='#FFF'> | </font><font color='#7700DA'>esc0rtd3w</font><font color='#FFF'> | </font><font color='#7700DA'>habib</font><font color='#FFF'> | </font><font color='#7700DA'>bguerville</font></b>";  // DON'T NEED TO BE TRANSLATED
+var gui_credits="<b>Agradeço à @xerpi pelo port para o PS3 do exploit de vazamento de memória no ambiente de usuário, @zecoxao & @Joonie pela suporte inicial e contínuo, @mysis por documentar os plugins e exports, the psdevwiki contributors of course, STLcardsWS for his long standing contribution & all ps3 community hackers/devs past & present, you know who you are. Thanks to littlebalup as well for providing the idea & the related js implementation we used to make the HDD edition of the Dumpers and Flasher. Also thanks to B7U3 C50SS, Endless, and 0x1991337 for tutorial syscall testing and other help!</font> <font color='#white_smaller'><b>More details & news on <a href='http://www.psx-place.com'>http://www.psx-place.com</a>. Official website at <a href='http://ps3xploit.com'>http://ps3xploit.com</a></b>";
 
 // Checkboxes First Section
 var gui_chk_default_settings="Default Settings:";
@@ -320,6 +321,7 @@ var gui_txt_group_filesize="File Size:";
 var gui_txt_group_titleid="TitleID:";
 
 var gui_txt_btn_set_filesize="Set";
+var gui_txt_set_titleid="PS3XPLOIT";
 var gui_txt_btn_set_titleid="Set";
 
 var gui_txt_group_path_source="Source:";

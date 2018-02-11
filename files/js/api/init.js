@@ -205,7 +205,7 @@ var device_id=0x00000004;
 var rosdump_addr=0x8D000000;
 var step_sector=0x1;
 var file_size=0x00000140;
-var file_size_edit=0x00000140;
+var file_size_display="0x00000140";
 
 var file_descriptor;
 var db_rebuild_bytes=0x000003E9;

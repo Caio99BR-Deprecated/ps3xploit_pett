@@ -19,16 +19,16 @@
 	font-size: 16px;
 }
 
-div #fwVerText {
+#fwVerText {
 	float: right;
 	margin-top: 3px;
 	margin-bottom: 3px;
 	font-size: 16px;
 }
 
-div #gui_credits {
+#gui_credits {
 	text-align: left;
-	font-size: 16px;
+	font-size: 13px;
 }
 
 #top_row {

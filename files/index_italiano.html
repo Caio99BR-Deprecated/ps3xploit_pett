@@ -45,10 +45,10 @@
 			<table width="100%" cellpadding="0" cellspacing="0">
 			    <tr>
 				    <td>
-			<div class="white" id="gui_team"></div>
+						<div class="white" id="gui_team"></div>
 					</td>
 					<td>
-			<div class="green_small" id="fwVerText"></div>
+						<div class="green_small" id="fwVerText"></div>
 					</td>
 				</tr>
 			</table>
@@ -58,12 +58,24 @@
 		<hr size="1">
 		<div id="top_row">
 			<b><span class="white" id="gui_chk_default_settings"></span></b><input type="checkbox" id="default_settings" name="default_settings" onclick="toggle_default_settings();" checked />
+			<span class="white">|</span> &nbsp
 			
 			<b><span class="white" id="gui_chk_disable_trigger"></span></b><input type="checkbox" id="disable_trigger" name="disable_trigger" onclick="toggleTrigger();"/>
+			<!-- &nbsp <span class="white">|</span> &nbsp -->
 			
 			<b><span class="white" id="gui_chk_flash_type_nand"></span></b><input type="checkbox" id="flash_type_nand" name="flash_type_nand" onclick="setFlashType(0);"/><b><span class="white" id="gui_chk_flash_type_nor"></span></b><input type="checkbox" id="flash_type_nor" name="flash_type_nor" onclick="setFlashType(1);" checked /><b><span class="white" id="gui_chk_flash_type_emmc"></span></b><input type="checkbox" id="flash_type_emmc" name="flash_type_emmc" onclick="setFlashType(2);"/>
+			<!-- &nbsp <span class="white">|</span> &nbsp -->
 				
 			<b><span class="white" id="gui_chk_write_protect"></font></b><input type="checkbox" id="write_protection_toggle" name="write_protection_toggle" onclick="toggleWriteProtect();" checked />
+			<!-- &nbsp <span class="white">|</span> &nbsp -->
+
+			<b><span class="white" id="gui_chk_reboot_mode"></span></b> 
+			<select name="marked_reboot" id="marked_reboot" onchange="rebootSelection(this);">
+			<option value="" id="gui_chk_reboot_mode_select"></option>
+			<option value="reboot_shutdown_soft" id="gui_chk_reboot_mode_soft"></option>
+			<option value="reboot_shutdown_hard" id="gui_chk_reboot_mode_hard"></option>
+			<option value="reboot_shutdown_off" id="gui_chk_reboot_mode_off"></option>
+			</select>
 		</div>
 		<hr size="1">
 		<!-- Stack Frame Hex -->
@@ -113,6 +125,7 @@
 				<option value="" id="gui_txt_syscall_chains_mem_sys" selected></option>
 				<option value="sys_rsx_memory_free" id="gui_txt_option_sys_rsx_memory_free"></option>
 				</select>
+				<!-- &nbsp <span class="white">|</span> &nbsp -->
 				
 				<select name="marked_hex_storage" id="marked_hex_storage" onchange="chainSelection(this);" >
 				<option value="" id="gui_txt_syscall_chains_storage" selected></option>
@@ -135,6 +148,7 @@
 				<option value="sys_fs_unlink" id="gui_txt_option_sys_fs_unlink"></option>
 				<option value="sys_fs_unmount" id="gui_txt_option_sys_fs_unmount"></option>
 				</select>
+				<!-- &nbsp <span class="white">|</span> &nbsp -->
 				
 				<select name="marked_hex_system" id="marked_hex_system" onchange="chainSelection(this);">
 				<option value="" id="gui_txt_syscall_chains_system" selected></option>
@@ -153,7 +167,8 @@
 				<select name="marked_hex_process_id" id="marked_hex_process_id" onchange="getProcessID(this);">
 				<option value="" id="gui_txt_syscall_chains_process" selected></option>
 				<option value="16777984">0x01000300 VSH</option>
-				</select> 
+				</select>
+				<!-- &nbsp <span class="white">|</span> &nbsp -->
 				
 				<select name="marked_hex_threads" id="marked_hex_threads" onchange="chainSelection(this);" >
 				<option value="" id="gui_txt_syscall_chains_threads" selected></option>
@@ -201,15 +216,8 @@
 				<option value="" id="gui_txt_syscall_chains_debug_sc" selected></option>
 				<option value="beep_test" id="gui_txt_option_debug_placeholder"></option>
 				</select> &nbsp
-
-				<b><span class="white" id="gui_chk_reboot_mode"></span></b> 
-				<select name="marked_reboot" id="marked_reboot" onchange="rebootSelection(this);">
-				<option value="" id="gui_chk_reboot_mode_select"></option>
-				<option value="reboot_shutdown_soft" id="gui_chk_reboot_mode_soft"></option>
-				<option value="reboot_shutdown_hard" id="gui_chk_reboot_mode_hard"></option>
-				<option value="reboot_shutdown_off" id="gui_chk_reboot_mode_off"></option>
-				</select>
 			</div>
+			
 			<hr size="1">
 			<div id="led_chains">
 				<b><span class="white" id="gui_txt_syscall_group_led"></span></b> 
@@ -232,7 +240,8 @@
 				<option value="0" id="gui_txt_option_led_action_off"></option>
 				<option value="2" id="gui_txt_option_led_action_blink_fast"></option>
 				<option value="3" id="gui_txt_option_led_action_blink_slow"></option>
-				</select> &nbsp
+				</select>
+				<!-- &nbsp <span class="white">|</span> &nbsp -->
 				
 				<b><span class="white" id="gui_txt_syscall_group_beep_params"></span></b> 
 				<select name="number_of_beeps_edit" id="number_of_beeps_edit" onchange="setNumberOfBeeps(this);">
@@ -382,7 +391,8 @@
 				<option value="00000023">00000023</option>
 				<option value="00000024">00000024</option>
 				<option value="00000025">00000025</option>
-				</select> &nbsp
+				</select>
+				<!-- &nbsp <span class="white">|</span> &nbsp -->
 				
 				<b><span class="white" id="gui_txt_group_permissions"></span></b>
 				<select name="marked_chmod" id="marked_chmod" onchange="chmodSet(this);" disabled>
@@ -399,15 +409,14 @@
 				<option value="0x00000000">* 0 *</option>
 				<option value="0x0000270F">9999</option>
 				</select>
-				
-				<br>
+				<!-- &nbsp <span class="white">|</span> &nbsp -->
 				
 				<b><span class="white" id="gui_txt_group_filesize"></span></b>
 				<textarea id="file_size_edit" name="file_size_edit" cols="10" rows="1">140</textarea>&nbsp <!-- 0x38C0 test payload -->
 				<button id="btn_file_size_edit" onclick="setFileSize();"><span id="gui_txt_btn_set_filesize"></span></button> &nbsp
 				
 				<b><span class="white" id="gui_txt_group_titleid"></span></b>
-				<textarea id="title_id_edit" name="title_id_edit" maxlength="9" cols="9" rows="1" placeholder="PS3XPLOIT"></textarea>&nbsp
+				<textarea id="title_id_edit" name="gui_txt_set_titleid" maxlength="9" cols="9" rows="1" placeholder="PS3XPLOIT">PS3XPLOIT</textarea>&nbsp
 				<button id="btn_title_id_edit" onclick="setTitleID();"><span id="gui_txt_btn_set_titleid"></span></button>
 			</div>
 			
@@ -652,10 +661,14 @@
 			<option value="50">50</option>
 			<option value="75">75</option>
 			<option value="100">100</option>
-			</select>&nbsp
+			</select>
+			<!-- &nbsp <span class="white">|</span> &nbsp -->
 			
-			<b><span class="white" id="gui_chk_search_verify_jumps"></span></b><input type="checkbox" id="verify_offsets" name="verify_offsets" onclick="verifyOffsetsToggle();" checked /> 
+			<b><span class="white" id="gui_chk_search_verify_jumps"></span></b><input type="checkbox" id="verify_offsets" name="verify_offsets" onclick="verifyOffsetsToggle();" checked />
+			
 			<b><span class="white" id="gui_chk_search_verify_stackframe"></span></b><input type="checkbox" id="verify_stackframe" name="verify_stackframe" onclick="verifyStackframeToggle();" />
+			<!-- &nbsp <span class="white">|</span> &nbsp -->
+			
 			<b><span class="white" id="gui_chk_search_debug_output"></span></b><input type="checkbox" id="debug_option" name="debug_option" onclick="debugToggle();"/>
 		</div>
 		

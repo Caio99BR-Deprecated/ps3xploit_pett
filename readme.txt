@@ -18,6 +18,7 @@ SELECT YOUR LANGUAGE AND THEN SET YOUR INDEX PAGE TO PS3 HOMEPAGE FOR BEST RESUL
 ============================================================
 Multi-Language Translator Credits
 ============================================================
+
 Brazilian Portuguese	@HollowChris/@Caio99BR
 Italian                	@neno20115
 Russian			@ErikPshat
@@ -26,9 +27,17 @@ Spanish Spain		@Ivoyko
 
 
 
+
 ============================================================
 Version History
 ============================================================
+
+v0.1.0
+- Cleaned Up and Fixed GUI (thanks @ErikPshat)
+- Added New Strings To Multi-Language Files (@neno20115,@Ivoyko,@Ripp3RkoS,@HollowChris,@Caio99BR)
+- Updated All Multi-Language Files (@ErikPshat)
+- Updated File Size & TitleID Functions
+
 v0.0.9
 - Added Russian to languages (thanks @ErikPshat)
 - Added Spanish Spain (thanks @Ivoyko)

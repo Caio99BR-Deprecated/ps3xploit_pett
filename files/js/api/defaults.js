@@ -32,7 +32,6 @@ function setDefaults()
 	setValueToHTML("path_dest","");
 	setValueToHTML("path_dest_type","");
 	
-	//setValueToHTML("file_size","0x00000140");// default file size
 	setValueToHTML("file_size_edit","0x00000140");// default file size
 	
 	if(debug_mode){writeEnvInfo(document.getElementById('footer'));}
@@ -1778,22 +1777,26 @@ function setTitleID(id){
 	var path_len=v.length;
 	var y=v.substring(0,15);
 	var z=v.substring(24,path_len);
+	var path_display=y+title_id.toUpperCase()+z
 
 	if (y===game_path) {
 		setValueToHTML("path_dest","");
 		setValueToHTML("path_dest",y+title_id.toUpperCase()+z);
+		alert("New Path Set To:\n\n"+path_display);
 	} else {
 		alert(msg_destination_path_incorrect);
+		path_dest_type.focus();
 	}
 } 
 
 function setFileSize(size){
 	var x=file_size_edit.value;
 	x=x.toString(16);
+	file_size_display=x;// set filesize display to be hex by default
 	setValueToHTML("file_size_edit","");
-	setValueToHTML("file_size_edit",x);
+	setValueToHTML("file_size_edit",file_size_display);
 	if(x===""){alert(msg_default_size);}else{alert(msg_new_size+x);}
-	if(x===""){file_size=0x00000140;}else{file_size=x;}
+	if(x===""){file_size=0x00000140;}else{file_size=x;}// set filesize using hex value
 	//if(file_size===0x7FFFF000){setValueToHTML("path_src","/dev_hdd1");setValueToHTML("path_dest","/dev_usb000/hdd1.bin");}//testing hdd1 mount
 	init_rop.focus();
 } 
@@ -1805,7 +1808,8 @@ function setPathNameSrc(path){
 	if((x==="/dev_usb000/LIC.EDAT")||(x==="/dev_hdd0/game/PS3XPLOIT/LICDIR/LIC.EDAT"))
 	{
 		file_size=0x10190;
-		setValueToHTML("file_size_edit",file_size.toString(16));
+		file_size_display="0x"+file_size.toString(16);
+		setValueToHTML("file_size_edit",file_size_display);
 		if (confirm(msg_anti_piracy_edat)){setValueToHTML("path_src",x);}else{reloadPage();}
 	}
 } 

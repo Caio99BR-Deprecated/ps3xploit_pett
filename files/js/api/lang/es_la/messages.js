@@ -49,7 +49,8 @@ var msg_mount_test="** En Fase de Prueba **!\n\nEsto Montara /dev_hdd1/\n\nAl Mo
 
 // File Operations
 var msg_default_size="Usando Peso Predet. 0x140";
-var msg_new_size="Nuevo Peso: 0x";
+var msg_new_size="Nuevo Peso: ";
+var msg_destination_path_set_new="New Path Set To:\n\n";
 var msg_destination_path_incorrect="Directorio Destino Incorrecto!\n\nDebes Fijarlo antes de cambiar la ID del Juego.";
 
 // Trigger Messages
@@ -137,8 +138,8 @@ var msg_invalid_title_id="ALERTA!\n\nLa ID del Juego Introducido es Incorrecto!\
 
 
 // index GUI text
-var gui_title="Plantilla para Tutorial PS3Xploit <font color='#000000'>v0.0.9</font>";
-var gui_team="por PS3Xploit Team: <b><font color='#7700DA'>W</font><font color='#FFFFFF'> | </font><font color='#7700DA'>esc0rtd3w</font><font color='#FFFFFF'> | </font><font color='#7700DA'>habib</font><font color='#FFFFFF'> | </font><font color='#7700DA'>bguerville</font></b>";
+var gui_title="Plantilla para Tutorial PS3Xploit <font color='#FFF' size='3'>v0.1.0</font>";
+var gui_team="por PS3Xploit Team: <b><font color='#7700DA'>W</font><font color='#FFF'> | </font><font color='#7700DA'>esc0rtd3w</font><font color='#FFF'> | </font><font color='#7700DA'>habib</font><font color='#FFF'> | </font><font color='#7700DA'>bguerville</font></b>";
 var gui_credits="<b>Agradecimientos a xerpi por el port del exploit de memoria de usuario del PS3, a zecoxao y Joonie por su soporte temprano y continuo, mysis por documentar vsh exports y plugins, desde luego a los contribuidores del psdevwiki, a STLcardsWS por su prologada y efectiva contribucion y a toda la Comunidad PS3 de Hackers/Desarrolladores pasados y presentes, Tu sabes quien eres. Gracias tambien a littlebalup por dar la idea y la implementacion js que usamos para elaborar la edicion HDD de Dumpers y Flasher. gracias ademas a B7U3 C50SS, Endless, y 0x1991337 por testear los syscall del tutorial  y otra ayuda!</font> <font color='#white_smaller'><b>Mas Detalles y Noticias en <a href='http://www.psx-place.com'>http://www.psx-place.com</a>. Sitio Oficial <a href='http://ps3xploit.com'>http://ps3xploit.com</a></b>";
 
 // Checkboxes First Section
@@ -320,6 +321,7 @@ var gui_txt_group_filesize="Peso Archivo:";
 var gui_txt_group_titleid="ID del Juego:";
 
 var gui_txt_btn_set_filesize="Establecer";
+var gui_txt_set_titleid="PS3XPLOIT";
 var gui_txt_btn_set_titleid="Establecer";
 
 var gui_txt_group_path_source="Origen:";
